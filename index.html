@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dipak - Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    </style>
+    <style>
+    * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            background-color: rgb(0, 0, 33);
+            color: white;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            height: 90px;
+            background-color: rgb(18, 18, 62);
+        }
+        
+        .left {
+            font-size: 1.5rem;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+        }
+        
+        nav ul li {
+            list-style: none;
+            margin: 0 23px;
+            justify-content: center;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            margin: 0 23px;
+            color: aliceblue;
+        }
+        
+        nav ul li a:hover {
+            color: rgb(155, 155, 246);
+            font-size: 1.2rem;
+        }
+        
+        main hr {
+            border: 0;
+            background-color: #9c97f1;
+            height: 1.2px;
+            margin: 60px 84px;
+        }
+        
+        .firstSection {
+            display: flex;
+            justify-content: space-around;
+            margin: 140px 0;
+            align-items: center;
+        }
+        
+        .firstSection>div {
+            width: 30%;
+        }
+        
+        .leftSection {
+            font-size: 2rem;
+            margin: 50px 50px;
+        }
+        
+        .leftSection .btn1 {
+            margin: 25px;
+            padding: 15px;
+            background: #1e2167;
+            color: white;
+            border: 2px solid white;
+            border-radius: 5px;
+            font-size: 15px;
+            cursor: pointer;
+        }
+        
+        .leftSection .btn2 {
+            margin: 25px;
+            padding: 15px;
+            background: #1e2167;
+            color: white;
+            border: 2px solid white;
+            border-radius: 5px;
+            font-size: 15px;
+            cursor: pointer;
+        }
+        
+        .rightSection img {
+            width: 138%;
+            margin: -7px -100px;
+        }
+        
+        .purple {
+            color: rgb(112, 12, 206);
+        }
+        
+        .text-gray {
+            color: gray;
+        }
+        
+        #element {
+            color: rgb(112, 12, 206);
+        }
+        
+        .secondSection {
+            max-width: 80vw;
+            margin: auto;
+            height: 80vh;
+        }
+        
+        .secondSection h1 {
+            font-size: 2rem;
+        }
+        
+        .secondSection .box {
+            background-color: white;
+            width: 80vw;
+            height: 2px;
+            margin: 56px 0;
+            display: flex;
+        }
+        
+        .secondSection .vertical {
+            height: 99px;
+            width: 1px;
+            background-color: white;
+            margin: 0 100px;
+        }
+        
+        .image-top {
+            width: 23px;
+            position: relative;
+            top: -32px;
+            left: 0px;
+        }
+        
+        .vertical-title {
+            position: relative;
+            top: 75px;
+            width: 150px;
+        }
+        
+        .vertical-desc {
+            position: relative;
+            top: 86px;
+            color: gray;
+            width: 150px;
+            font-size: 9px;
+        }
+        
+        .image-top2 {
+            width: 23px;
+            position: relative;
+            top: -32px;
+            left: 0px;
+        }
+        
+        .vertical-title2 {
+            position: relative;
+            top: 75px;
+            width: 150px;
+        }
+        
+        .vertical-desc2 {
+            position: relative;
+            top: 86px;
+            color: gray;
+            width: 150px;
+            font-size: 9px;
+        }
+        
+        .image-top3 {
+            width: 23px;
+            position: relative;
+            top: -32px;
+            left: 0px;
+        }
+        
+        .vertical-title3 {
+            position: relative;
+            top: 75px;
+            width: 150px;
+        }
+        
+        .vertical-desc3 {
+            position: relative;
+            top: 86px;
+            color: gray;
+            width: 150px;
+            font-size: 9px;
+        }
+        
+        .image-top4 {
+            width: 23px;
+            position: relative;
+            top: -32px;
+            left: 0px;
+        }
+        
+        .vertical-title4 {
+            position: relative;
+            top: 75px;
+            width: 150px;
+        }
+        
+        .vertical-desc4 {
+            position: relative;
+            top: 86px;
+            color: gray;
+            width: 150px;
+            font-size: 9px;
+        }
+        
+        footer {
+            background-color: rgb(10, 36, 91);
+        }
+        
+        .footer {
+            display: flex;
+            padding: 23px 122px;
+            justify-content: space-evenly;
+        }
+        
+        .footer ul {
+            list-style: none;
+        }
+        
+        .footer>div {
+            width: 223px;
+        }
+        
+        footer .footer-right {
+            text-align: center;
+            color: gray;
+            padding: 12px 0;
+        }
+    }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="left">Dipak's Portfolio</div>
+            <div class="right">
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/">About</a></li>
+                    <li><a href="/">Services</a></li>
+                    <li><a href="/">Projects</a></li>
+                    <li><a href="/">Contact Me</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="firstSection">
+            <div class="leftSection">Hi My Name Is <span class="purple">Dipak Mandlik</span>
+                <div>and I am a Passionate</div>
+                <!--<div> Web Developer</div>-->
+                <span id="element"></span>
+                <div class="buttons">
+                    <button class="btn1" onclick="window.open('res.pdf')">Download Resume</button>
+                    <button class="btn2" onclick="window.open('https://github.com/DipakMandlik')">Visit Github</button>
+
+                </div>
+            </div>
+            <div class="rightSection ">
+                <img src="bg2.png " alt " ">
+            </div>
+        </section>
+        <hr>
+        <section class="secondSection">
+            <span class="text-gray">What i have done so far?</span>
+            <h1> Pats Experiences And Learnings</h1>
+            <div class="box">
+                <div class="vertical">
+                    <img class="image-top" src="python.png" alt="">
+                    <div class="vertical-title">
+                        Started Learning Python Programming Basics(2021)
+                    </div>
+                    <div class="vertical-desc">
+                        In Enginering First year i have learn the basic concept of python and also done and python framework workshop Django in Second year and also Now learning Machine learning Using Python in Third year of my college journey </div>
+                </div>
+                <div class="vertical">
+                    <img class="image-top2" src="c.png" alt="">
+                    <div class="vertical-title2">
+                        Started Learning C Programming Language (2022)
+                    </div>
+                    <div class="vertical-desc2">
+                        After knowing the importance of procedural oriented programming Language started Learning C from private institute and i am a certified by it also.
+                    </div>
+                </div>
+                <div class="vertical">
+                    <img class="image-top3" src="ds.png" alt="">
+                    <div class="vertical-title3">
+                        Learning DSA using C-Programming Language
+                    </div>
+                    <div class="vertical-desc3">
+                        By knowing the importance of Data structure And Algorithm in Development and the DSA is also involved in our second year syllabus i have started learning DSA in Private in coaching as well as well as i am also certified by that coaching institute
+                    </div>
+                </div>
+                <div class="vertical">
+                    <img class="image-top4" src="cpp.png" alt="">
+                    <div class="vertical-title4">
+                        Learning CPP and JAVA(2023)
+                    </div>
+                    <div class="vertical-desc4">
+                        Solving the real world problem is always my passion and for the purpoe of Development we also required these Object oriented programming Language and these OOP concept also introduced in the Syllabus as well i am certified in cpp by a coachin institute>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="footer">
+            <div class="footer-first">
+                Dipak Mandlik Developer Portfolio
+            </div>
+            <div class="footer-second">
+                <ul>
+                    <li>Home</li>
+                    <li>About</li>
+                    <li>Services</li>
+                    <li>Contact</li>
+                </ul>
+            </div>
+            <div class="footer-third">
+                <ul>
+                    <li>Home</li>
+                    <li>About</li>
+                    <li>Services</li>
+                    <li>Contact</li>
+                </ul>
+            </div>
+            <div class="footer-fourth">
+                <ul>
+                    <li>Home</li>
+                    <li>About</li>
+                    <li>Services</li>
+                    <li>Contact</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-right">
+            www.dipaksportfolio.com | All Rights Reserved
+        </div>
+    </footer>
+    <script src="http://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+    <script>
+        var typed = new Typed('#element', {
+            strings: ['Information Technology Student', 'Web Developer', 'Software Engineer', 'Trader and Investor...'],
+            typeSpeed: 50,
+        });
+    </script>
+</body>
+
+</html>
