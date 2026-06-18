@@ -1,6 +1,6 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import { ArrowUpRight, Github } from "lucide-react";
+import { ArrowUpRight, Code2 } from "lucide-react";
 import { projects, type Project } from "@/data/projects";
 import { Reveal } from "@/components/motion/Reveal";
 import { SectionHeading } from "@/components/motion/SectionHeading";
@@ -81,7 +81,7 @@ function ProjectBlock({ p, i }: { p: Project; i: number }) {
               rel="noreferrer"
               className="group inline-flex items-center gap-1.5 text-sm font-medium text-ink-soft hover:text-ink"
             >
-              <Github className="size-4" />
+              <Code2 className="size-4" />
               Source
             </a>
           )}
