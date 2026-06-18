@@ -1,29 +1,62 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { LenisProvider } from "@/components/LenisProvider";
+import { ScrollProgress } from "@/components/ScrollProgress";
+import { CustomCursor } from "@/components/CustomCursor";
+import { StickyNav } from "@/components/nav/StickyNav";
+import { Hero } from "@/components/sections/Hero";
+import { About } from "@/components/sections/About";
+import { Experience } from "@/components/sections/Experience";
+import { Skills } from "@/components/sections/Skills";
+import { Projects } from "@/components/sections/Projects";
+import { Education } from "@/components/sections/Education";
+import { Certifications } from "@/components/sections/Certifications";
+import { Awards } from "@/components/sections/Awards";
+import { Journey } from "@/components/sections/Journey";
+import { Contact } from "@/components/sections/Contact";
+import { Footer } from "@/components/sections/Footer";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Your App" },
-      { name: "description", content: "Replace this with a one-sentence description of your app." },
-      { property: "og:title", content: "Your App" },
-      { property: "og:description", content: "Replace this with a one-sentence description of your app." },
+      { title: "Dipak Mandlik — Software Engineer · AI & Data" },
+      {
+        name: "description",
+        content:
+          "Portfolio of Dipak Mandlik, a software engineer working at the intersection of full-stack web, data, and applied AI.",
+      },
+      { property: "og:title", content: "Dipak Mandlik — Software Engineer" },
+      {
+        property: "og:description",
+        content:
+          "Calm, fast products at the intersection of software, data, and machine intelligence.",
+      },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <>
+      <LenisProvider />
+      <ScrollProgress />
+      <CustomCursor />
+      <StickyNav />
+      <main>
+        <Hero />
+        <About />
+        <Experience />
+        <Skills />
+        <Projects />
+        <Education />
+        <Certifications />
+        <Awards />
+        <Journey />
+        <Contact />
+      </main>
+      <Footer />
+    </>
   );
 }
