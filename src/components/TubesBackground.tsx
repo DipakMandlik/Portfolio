@@ -33,8 +33,7 @@ export function TubesBackground({
       try {
         const url =
           "https://cdn.jsdelivr.net/npm/threejs-components@0.0.19/build/cursors/tubes1.min.js";
-        // @ts-expect-error - dynamic remote ESM import
-        const mod = await import(/* @vite-ignore */ url);
+        const mod = await (0, eval)(`import("${url}")`);
         if (!mounted) return;
         const TubesCursor = (mod as any).default;
         const app = TubesCursor(canvasRef.current, {
