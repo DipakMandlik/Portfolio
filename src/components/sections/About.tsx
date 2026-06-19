@@ -65,19 +65,6 @@ export function About() {
                   aria-hidden
                   className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"
                 />
-                <div className="absolute inset-x-0 bottom-0 flex items-end justify-between p-5 text-white">
-                  <div>
-                    <p className="text-[10px] uppercase tracking-[0.22em] text-white/70">
-                      {profile.location}
-                    </p>
-                    <p className="mt-1 font-display text-lg leading-tight">
-                      {profile.name}
-                    </p>
-                  </div>
-                  <span className="rounded-full border border-white/20 bg-white/10 px-2.5 py-1 text-[10px] uppercase tracking-[0.18em] backdrop-blur">
-                    {new Date().getFullYear()}
-                  </span>
-                </div>
               </div>
             </div>
           </Reveal>
