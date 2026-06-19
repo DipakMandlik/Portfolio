@@ -102,20 +102,6 @@ export function Experience() {
                   <stop offset="100%" stopColor="var(--color-blue-deep, #1e3a8a)" />
                 </linearGradient>
               </defs>
-              {/* faint guide path */}
-              <path
-                d=""
-                ref={(el) => {
-                  // duplicate static guide using same d via attribute updates on main path
-                  if (el && pathRef.current) {
-                    el.setAttribute("d", pathRef.current.getAttribute("d") || "");
-                  }
-                }}
-                stroke="currentColor"
-                className="text-line"
-                strokeWidth="1"
-                opacity="0.35"
-              />
               <path
                 ref={pathRef}
                 stroke="url(#exp-line)"
