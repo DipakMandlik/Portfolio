@@ -3,7 +3,9 @@ import { useRef } from "react";
 import { profile } from "@/data/profile";
 import { Reveal } from "@/components/motion/Reveal";
 import { SectionHeading } from "@/components/motion/SectionHeading";
-import portrait from "@/assets/portrait.jpg";
+import portraitAsset from "@/assets/portrait-dipak.jpg.asset.json";
+
+const portrait = portraitAsset.url;
 
 export function About() {
   const ref = useRef<HTMLDivElement>(null);
@@ -44,20 +46,39 @@ export function About() {
           </Reveal>
 
           <Reveal className="md:col-span-5" delay={0.15}>
-            <div className="relative overflow-hidden rounded-2xl border border-line bg-bg-porcelain">
-              <motion.img
-                src={portrait}
-                alt={`Portrait of ${profile.name}`}
-                style={{ y }}
-                width={896}
-                height={1152}
-                className="h-[460px] w-full object-cover sm:h-[560px]"
-                loading="lazy"
-              />
+            <div className="relative">
               <div
                 aria-hidden
-                className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/10 to-transparent"
+                className="pointer-events-none absolute -inset-6 -z-10 rounded-[2rem] bg-[radial-gradient(60%_50%_at_50%_40%,rgba(47,107,255,0.18),transparent_75%)] blur-2xl"
               />
+              <div className="relative overflow-hidden rounded-2xl border border-line bg-ink shadow-[0_30px_80px_-30px_rgba(10,10,11,0.45)]">
+                <motion.img
+                  src={portrait}
+                  alt={`Portrait of ${profile.name}`}
+                  style={{ y }}
+                  width={1080}
+                  height={1080}
+                  className="h-[460px] w-full object-cover object-center grayscale-[8%] sm:h-[600px]"
+                  loading="lazy"
+                />
+                <div
+                  aria-hidden
+                  className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"
+                />
+                <div className="absolute inset-x-0 bottom-0 flex items-end justify-between p-5 text-white">
+                  <div>
+                    <p className="text-[10px] uppercase tracking-[0.22em] text-white/70">
+                      {profile.location}
+                    </p>
+                    <p className="mt-1 font-display text-lg leading-tight">
+                      {profile.name}
+                    </p>
+                  </div>
+                  <span className="rounded-full border border-white/20 bg-white/10 px-2.5 py-1 text-[10px] uppercase tracking-[0.18em] backdrop-blur">
+                    {new Date().getFullYear()}
+                  </span>
+                </div>
+              </div>
             </div>
           </Reveal>
         </div>
