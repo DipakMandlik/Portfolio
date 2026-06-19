@@ -53,18 +53,6 @@ export function Hero() {
       <div className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-line/70" />
 
       <div className="container-x relative flex flex-1 flex-col justify-center">
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: EASE }}
-          className="mb-8 inline-flex w-fit items-center gap-2 rounded-full border border-line bg-white/70 px-3.5 py-1.5 text-xs font-medium text-ink-soft backdrop-blur"
-        >
-          <span className="relative flex h-1.5 w-1.5">
-            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-blue/40" />
-            <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-blue" />
-          </span>
-          Available for new projects · {profile.location}
-        </motion.div>
 
         <SplitName text={profile.name} />
 
