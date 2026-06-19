@@ -4,43 +4,68 @@ import { Reveal } from "@/components/motion/Reveal";
 import { SectionHeading } from "@/components/motion/SectionHeading";
 
 export function Experience() {
-  const lineRef = useRef<HTMLDivElement>(null);
+  const pathRef = useRef<SVGPathElement>(null);
+  const svgRef = useRef<SVGSVGElement>(null);
   const sectionRef = useRef<HTMLElement>(null);
+  const trackRef = useRef<HTMLDivElement>(null);
 
+  // Build a gently meandering path that fills the track height
   useEffect(() => {
     if (typeof window === "undefined") return;
+    const path = pathRef.current;
+    const svg = svgRef.current;
+    const track = trackRef.current;
+    if (!path || !svg || !track) return;
+
+    const buildPath = () => {
+      const h = track.offsetHeight;
+      const w = 80; // svg width
+      const cx = w / 2;
+      const amp = 22;
+      const segments = Math.max(4, Math.round(h / 220));
+      let d = `M ${cx} 0`;
+      for (let i = 1; i <= segments; i++) {
+        const y1 = (h / segments) * (i - 0.5);
+        const y2 = (h / segments) * i;
+        const x1 = cx + (i % 2 === 0 ? -amp : amp);
+        d += ` Q ${x1} ${y1} ${cx} ${y2}`;
+      }
+      svg.setAttribute("viewBox", `0 0 ${w} ${h}`);
+      svg.setAttribute("height", `${h}`);
+      path.setAttribute("d", d);
+      const len = path.getTotalLength();
+      path.style.strokeDasharray = `${len}`;
+      path.style.strokeDashoffset = `${len}`;
+      return len;
+    };
+
+    let length = buildPath();
+
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduce) {
+      path.style.strokeDashoffset = "0";
+      return;
+    }
 
-    let ctx: { revert: () => void } | null = null;
-    (async () => {
-      const { gsap } = await import("gsap");
-      const { ScrollTrigger } = await import("gsap/ScrollTrigger");
-      gsap.registerPlugin(ScrollTrigger);
+    const onScroll = () => {
+      const rect = track.getBoundingClientRect();
+      const vh = window.innerHeight;
+      const total = rect.height + vh * 0.5;
+      const progress = Math.min(1, Math.max(0, (vh * 0.85 - rect.top) / total));
+      path.style.strokeDashoffset = `${length * (1 - progress)}`;
+    };
 
-      ctx = gsap.context(() => {
-        if (reduce) {
-          gsap.set(lineRef.current, { scaleY: 1 });
-          return;
-        }
-        gsap.fromTo(
-          lineRef.current,
-          { scaleY: 0 },
-          {
-            scaleY: 1,
-            ease: "none",
-            scrollTrigger: {
-              trigger: sectionRef.current,
-              start: "top 75%",
-              end: "bottom 65%",
-              scrub: true,
-            },
-          },
-        );
-      }, sectionRef);
-    })();
+    const onResize = () => {
+      length = buildPath();
+      onScroll();
+    };
 
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onResize);
     return () => {
-      ctx?.revert();
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onResize);
     };
   }, []);
 
@@ -57,15 +82,33 @@ export function Experience() {
           intro="Each role has been a chance to ship something that matters and learn something I didn't know the day before."
         />
 
-        <div className="relative mt-20 grid grid-cols-1 md:grid-cols-[160px_1fr] md:gap-x-16">
-          {/* Timeline line */}
-          <div className="pointer-events-none absolute left-0 top-0 hidden h-full md:block md:left-[160px]">
-            <div className="relative ml-[-1px] h-full w-px bg-line">
-              <div
-                ref={lineRef}
-                className="absolute inset-0 origin-top bg-gradient-to-b from-blue to-blue-deep"
+        <div
+          ref={trackRef}
+          className="relative mt-20 grid grid-cols-1 md:grid-cols-[160px_1fr] md:gap-x-16"
+        >
+          {/* Animated SVG journey line */}
+          <div className="pointer-events-none absolute left-0 top-0 hidden h-full w-20 md:block md:left-[120px]">
+            <svg
+              ref={svgRef}
+              width="80"
+              height="100%"
+              className="overflow-visible"
+              fill="none"
+              aria-hidden
+            >
+              <defs>
+                <linearGradient id="exp-line" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stopColor="var(--color-blue-bright, #3b82f6)" />
+                  <stop offset="100%" stopColor="var(--color-blue-deep, #1e3a8a)" />
+                </linearGradient>
+              </defs>
+              <path
+                ref={pathRef}
+                stroke="url(#exp-line)"
+                strokeWidth="2"
+                strokeLinecap="round"
               />
-            </div>
+            </svg>
           </div>
 
           <div className="contents">
@@ -78,10 +121,9 @@ export function Experience() {
                 </Reveal>
 
                 <Reveal className="relative pb-16 md:pl-12" delay={0.05}>
-                  {/* Node */}
                   <span
                     aria-hidden
-                    className="absolute left-[-7px] top-2 hidden h-3 w-3 rounded-full border-2 border-bg-porcelain bg-blue md:block"
+                    className="absolute left-[-7px] top-2 hidden h-3 w-3 rounded-full border-2 border-bg-porcelain bg-blue shadow-[0_0_0_4px_rgba(59,130,246,0.15)] md:block"
                   />
 
                   <div className="text-xs uppercase tracking-[0.18em] text-ink-soft md:hidden">
