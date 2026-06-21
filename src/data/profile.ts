@@ -1,16 +1,17 @@
-// [FILL IN] Personal profile — update with real content
 export const profile = {
   name: "Dipak Mandlik",
   monogram: "DM",
-  headline: "Software Engineer · AI & Data Enthusiast",
+  headline:
+    "Associate Software Engineer · Data & AI Engineer · Founder @ AIByDM",
   subline:
-    "I design and build calm, fast products at the intersection of software, data, and machine intelligence.",
-  bio: "I'm a software engineer who likes shipping things that feel inevitable — products where the interface gets out of the way and the data does the talking. I work across full-stack web, data pipelines, and applied AI, and I care a lot about the small details most people never notice.",
-  location: "Pune, India",
+    "I build scalable data platforms and AI automation — turning Snowflake, DBT, and modern engineering practices into products people actually ship.",
+  bio: "Data & AI engineer specializing in cloud data platforms, AI automation, and enterprise software. Currently an Associate Software Engineer at PibyThree, working with Snowflake, DBT, and modern engineering practices. Founder of AIByDM — a community helping professionals learn, build, and ship practical AI solutions.",
+  location: "Navi Mumbai, Maharashtra, India",
   yearsExperience: "3+",
-  focus: "Full-stack · AI · Data",
-  email: "hello@dipakmandlik.dev", // [FILL IN]
+  focus: "Data Engineering · AI Automation · Full-Stack",
+  tagline: "Building the future with AI, Data Engineering, and Intelligent Automation.",
+  email: "hello@dipakmandlik.dev", // [FILL IN — share your real email]
   linkedin: "https://www.linkedin.com/in/dipak-mandlik-4490b5286",
-  github: "https://github.com/", // [FILL IN]
-  cvUrl: "#", // [FILL IN] link to PDF
+  github: "https://github.com/", // [FILL IN — share your GitHub handle]
+  cvUrl: "#", // [FILL IN — link to PDF CV]
 };

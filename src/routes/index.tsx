@@ -18,23 +18,23 @@ import { Footer } from "@/components/sections/Footer";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Dipak Mandlik — Software Engineer · AI & Data" },
+      { title: "Dipak Mandlik — Data & AI Engineer · Founder @ AIByDM" },
       {
         name: "description",
         content:
-          "Portfolio of Dipak Mandlik, a software engineer working at the intersection of full-stack web, data, and applied AI.",
+          "Portfolio of Dipak Mandlik — Associate Software Engineer at PibyThree, Data & AI engineer, and founder of AIByDM. Snowflake, DBT, AI automation, and full-stack.",
       },
-      { property: "og:title", content: "Dipak Mandlik — Software Engineer" },
+      { property: "og:title", content: "Dipak Mandlik — Data & AI Engineer" },
       {
         property: "og:description",
         content:
-          "Calm, fast products at the intersection of software, data, and machine intelligence.",
+          "Building the future with AI, Data Engineering, and Intelligent Automation.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://dipak-mandlik-portfolio.lovable.app/" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "Dipak Mandlik — Software Engineer" },
-      { name: "twitter:description", content: "Calm, fast products at the intersection of software, data, and machine intelligence." },
+      { name: "twitter:title", content: "Dipak Mandlik — Data & AI Engineer" },
+      { name: "twitter:description", content: "Building the future with AI, Data Engineering, and Intelligent Automation." },
     ],
     links: [{ rel: "canonical", href: "https://dipak-mandlik-portfolio.lovable.app/" }],
     scripts: [
@@ -44,12 +44,16 @@ export const Route = createFileRoute("/")({
           "@context": "https://schema.org",
           "@type": "Person",
           name: "Dipak Mandlik",
-          jobTitle: "Software Engineer",
+          jobTitle: "Associate Software Engineer · Data & AI Engineer",
+          worksFor: { "@type": "Organization", name: "PibyThree" },
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: "Navi Mumbai",
+            addressRegion: "Maharashtra",
+            addressCountry: "IN",
+          },
           url: "https://dipak-mandlik-portfolio.lovable.app/",
-          sameAs: [
-            "https://www.linkedin.com/in/dipak-mandlik-4490b5286",
-            "https://github.com/",
-          ],
+          sameAs: ["https://www.linkedin.com/in/dipak-mandlik-4490b5286"],
         }),
       },
     ],
