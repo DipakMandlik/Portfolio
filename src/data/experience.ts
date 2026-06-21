@@ -1,4 +1,3 @@
-// [FILL IN] Work experience
 export type Role = {
   company: string;
   title: string;
@@ -9,34 +8,46 @@ export type Role = {
 
 export const experience: Role[] = [
   {
-    company: "Independent / Freelance",
-    title: "Software Engineer",
-    dates: "2024 — Present",
-    location: "Remote",
+    company: "PibyThree",
+    title: "Associate Software Engineer",
+    dates: "Oct 2025 — Present",
+    location: "Mahape, Navi Mumbai",
     bullets: [
-      "Designed and shipped end-to-end web products for early-stage teams, from data model to deployed UI.",
-      "Built retrieval-augmented chat and analytics tooling on top of OpenAI and open-source LLMs.",
-      "Owned performance, accessibility, and design quality on every release.",
+      "Building scalable data solutions on Snowflake with DBT, SQL, and Python.",
+      "Designing modern ELT pipelines, data models, and warehouse layers for enterprise clients.",
+      "Bringing AI automation into delivery workflows using Claude Code, Codex, and GitHub Copilot.",
     ],
   },
   {
-    company: "Tech Studio", // [FILL IN]
-    title: "Full-Stack Engineer",
-    dates: "2022 — 2024",
-    location: "Pune, India",
+    company: "AIByDM",
+    title: "Founder · Open Source Developer",
+    dates: "Jan 2022 — Jul 2025",
+    location: "Freelance · Remote",
     bullets: [
-      "Led the rebuild of the company's core dashboard, cutting time-to-first-render by 62%.",
-      "Migrated a legacy data pipeline to a streaming-first architecture handling 4M events/day.",
-      "Mentored two junior engineers through code review and pairing.",
+      "Founded AIByDM — a community and learning platform around practical AI.",
+      "Shipped AI-focused educational content, GenAI applications, and automation projects.",
+      "Drove open-source initiatives and developer enablement around AI agents and workflow automation.",
     ],
   },
   {
-    company: "Early-Stage Startup", // [FILL IN]
-    title: "Software Engineering Intern",
-    dates: "2021 — 2022",
+    company: "Amrutvahini College of Engineering (AVCOE)",
+    title: "Representative & Coordinator — Training and Placement Cell",
+    dates: "Jun 2024 — Jun 2025",
+    location: "Sangamner, Maharashtra",
     bullets: [
-      "Shipped the first version of a customer-facing portal used by 3,000+ users in month one.",
-      "Wrote internal tooling that automated a previously manual reporting workflow.",
+      "Coordinated with industry partners for campus recruitment and training programs.",
+      "Mentored students on interview prep, projects, and career direction.",
+      "Managed end-to-end placement support and training logistics.",
+    ],
+  },
+  {
+    company: "Sumago Infotech Pvt. Ltd.",
+    title: "MERN Stack Intern",
+    dates: "Jan 2024 — Feb 2024",
+    location: "Nashik, Maharashtra",
+    bullets: [
+      "Built full-stack features across React, Node.js, Express, and MongoDB.",
+      "Shipped frontend UI and REST APIs for internal web applications.",
     ],
   },
 ];

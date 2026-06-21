@@ -1,29 +1,48 @@
-// [FILL IN] Skills — group and reorder as needed
 export const skillGroups = [
   {
-    label: "Languages",
-    items: ["TypeScript", "JavaScript", "Python", "SQL", "Go"],
-  },
-  {
-    label: "Frameworks",
-    items: ["React", "Next.js", "Node.js", "FastAPI", "Express", "Tailwind"],
-  },
-  {
-    label: "AI & Data",
-    items: ["PyTorch", "LangChain", "OpenAI", "Pandas", "DuckDB", "Postgres"],
-  },
-  {
-    label: "Cloud & Tools",
-    items: ["AWS", "Vercel", "Docker", "GitHub Actions", "Supabase", "Figma"],
-  },
-  {
-    label: "Craft",
+    label: "Data Engineering",
     items: [
-      "Product thinking",
-      "Design systems",
-      "Performance",
-      "Accessibility",
-      "Writing",
+      "Snowflake",
+      "DBT",
+      "SQL",
+      "ETL / ELT Pipelines",
+      "Data Modeling",
+      "Data Warehousing",
+    ],
+  },
+  {
+    label: "AI & Automation",
+    items: [
+      "Generative AI",
+      "AI Agents",
+      "AI Workflow Automation",
+      "OpenAI",
+      "Claude Code",
+      "Codex",
+      "GitHub Copilot",
+      "Cursor",
+      "Lovable",
+    ],
+  },
+  {
+    label: "Software Development",
+    items: [
+      "Python",
+      "JavaScript",
+      "React",
+      "Node.js",
+      "MERN Stack",
+      "REST APIs",
+      "GitHub",
+    ],
+  },
+  {
+    label: "Cloud & DevOps",
+    items: [
+      "AWS Fundamentals",
+      "CI/CD",
+      "GitHub Actions",
+      "Automation Workflows",
     ],
   },
 ];
