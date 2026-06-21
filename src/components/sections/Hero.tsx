@@ -9,25 +9,28 @@ function SplitName({ text }: { text: string }) {
   const words = text.split(" ");
   return (
     <h1 className="font-display text-[14vw] leading-[0.95] tracking-[-0.03em] text-ink sm:text-[10vw] md:text-[8.5vw] lg:text-[8rem]">
-      {words.map((word, wi) => (
-        <span key={wi} className="mr-[0.25em] inline-block whitespace-nowrap">
-          {word.split("").map((ch, ci) => (
-            <motion.span
-              key={ci}
-              className="inline-block"
-              initial={{ y: reduce ? 0 : "110%", opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{
-                duration: 1,
-                ease: EASE,
-                delay: 0.15 + (wi * 0.05 + ci * 0.03),
-              }}
-            >
-              {ch}
-            </motion.span>
-          ))}
-        </span>
-      ))}
+      <span className="sr-only">{text} — Software Engineer</span>
+      <span aria-hidden="true">
+        {words.map((word, wi) => (
+          <span key={wi} className="mr-[0.25em] inline-block whitespace-nowrap">
+            {word.split("").map((ch, ci) => (
+              <motion.span
+                key={ci}
+                className="inline-block"
+                initial={{ y: reduce ? 0 : "110%", opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{
+                  duration: 1,
+                  ease: EASE,
+                  delay: 0.15 + (wi * 0.05 + ci * 0.03),
+                }}
+              >
+                {ch}
+              </motion.span>
+            ))}
+          </span>
+        ))}
+      </span>
     </h1>
   );
 }
