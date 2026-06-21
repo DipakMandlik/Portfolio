@@ -31,7 +31,27 @@ export const Route = createFileRoute("/")({
           "Calm, fast products at the intersection of software, data, and machine intelligence.",
       },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://dipak-mandlik-portfolio.lovable.app/" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Dipak Mandlik — Software Engineer" },
+      { name: "twitter:description", content: "Calm, fast products at the intersection of software, data, and machine intelligence." },
+    ],
+    links: [{ rel: "canonical", href: "https://dipak-mandlik-portfolio.lovable.app/" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Person",
+          name: "Dipak Mandlik",
+          jobTitle: "Software Engineer",
+          url: "https://dipak-mandlik-portfolio.lovable.app/",
+          sameAs: [
+            "https://www.linkedin.com/in/dipak-mandlik-4490b5286",
+            "https://github.com/",
+          ],
+        }),
+      },
     ],
   }),
   component: Index,

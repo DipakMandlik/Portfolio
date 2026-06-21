@@ -1,0 +1,7 @@
+# Dipak Mandlik — Software Engineer
+
+> Portfolio of Dipak Mandlik, a software engineer working at the intersection of full-stack web, data, and applied AI.
+
+## Pages
+
+- [Home](/): About, experience, skills, projects, education, certifications, awards, journey, and contact.
