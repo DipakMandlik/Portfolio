@@ -28,15 +28,6 @@ const CHIP_ICONS = {
   Target,
 } as const;
 
-const CHIP_POSITIONS = [
-  { left: "2%" },
-  { left: "20%" },
-  { left: "40%" },
-  { left: "58%" },
-  { left: "76%" },
-  { left: "92%" },
-];
-
 function AnimatedNumber({
   value,
   decimals = 0,
@@ -131,7 +122,7 @@ function MiniMilestone({ m, delay }: { m: EducationMilestone; delay: number }) {
       <div className="flex h-32 items-center justify-center">
         <TimelineNode logo={m.logo} alt={m.institution} />
       </div>
-      <div className="mt-5 text-center">
+      <div className="mt-4 rounded-2xl border border-line bg-white p-6 text-center shadow-[0_20px_50px_-32px_rgba(26,86,219,0.3)] transition-shadow duration-300 hover:shadow-[0_24px_55px_-28px_rgba(26,86,219,0.4)]">
         <MilestoneBody m={m} />
         <div className="mt-4 flex flex-wrap justify-center gap-1.5">
           {m.badges.map((b) => (
@@ -151,18 +142,16 @@ function MiniMilestone({ m, delay }: { m: EducationMilestone; delay: number }) {
 function FloatingChips() {
   const reduce = useReducedMotion();
   return (
-    <div aria-hidden className="pointer-events-none absolute inset-x-0 -top-5 hidden lg:block">
+    <div aria-hidden className="mb-6 hidden flex-wrap gap-2 lg:flex">
       {achievementChips.map((chip, i) => {
         const Icon = CHIP_ICONS[chip.icon];
         return (
           <motion.div
             key={chip.label}
-            className="absolute -translate-x-1/2"
-            style={CHIP_POSITIONS[i]}
-            animate={reduce ? undefined : { y: [0, -7, 0] }}
-            transition={{ duration: 5 + i * 0.4, repeat: Infinity, ease: "easeInOut", delay: i * 0.3 }}
+            animate={reduce ? undefined : { y: [0, -5, 0] }}
+            transition={{ duration: 4.5 + i * 0.4, repeat: Infinity, ease: "easeInOut", delay: i * 0.25 }}
           >
-            <div className="flex items-center gap-1.5 whitespace-nowrap rounded-full border border-line/70 bg-white/95 px-3 py-1.5 text-xs font-medium text-ink shadow-[0_14px_30px_-16px_rgba(10,10,11,0.35)] backdrop-blur-md">
+            <div className="flex items-center gap-1.5 whitespace-nowrap rounded-full border border-blue/15 bg-blue/5 px-3 py-1.5 text-xs font-medium text-ink">
               <Icon className="size-3.5 text-blue" />
               {chip.label}
             </div>
@@ -180,7 +169,7 @@ function MajorMilestone({ m, delay }: { m: EducationMilestone; delay: number }) 
         <TimelineNode logo={m.logo} alt={m.institution} size="lg" />
       </div>
 
-      <div className="relative mt-4 overflow-visible rounded-3xl border border-line bg-white p-8 shadow-[0_30px_70px_-40px_rgba(26,86,219,0.35)] sm:p-10">
+      <div className="relative mt-4 rounded-2xl border border-line bg-white p-6 shadow-[0_24px_60px_-35px_rgba(26,86,219,0.35)] transition-shadow duration-300 hover:shadow-[0_28px_65px_-30px_rgba(26,86,219,0.42)] sm:rounded-3xl sm:p-10">
         <FloatingChips />
 
         <div className="grid gap-8 lg:grid-cols-[1.5fr_1fr] lg:items-center">
@@ -285,7 +274,7 @@ export function Education() {
         <div className="relative mt-24 hidden md:block">
           <motion.div
             aria-hidden
-            className="absolute left-0 right-0 top-16 h-px origin-left bg-gradient-to-r from-blue/20 via-blue to-blue-deep"
+            className="absolute left-0 right-0 top-16 h-[3px] origin-left rounded-full bg-gradient-to-r from-blue/30 via-blue to-blue-deep"
             style={{ scaleX: lineScale }}
           />
           <div className="flex items-start gap-8 lg:gap-12">
@@ -299,7 +288,7 @@ export function Education() {
         <div className="relative mt-16 space-y-12 md:hidden">
           <div
             aria-hidden
-            className="absolute left-10 top-2 bottom-2 w-px bg-gradient-to-b from-blue/15 via-blue to-blue-deep"
+            className="absolute left-10 top-2 bottom-2 w-[3px] rounded-full bg-gradient-to-b from-blue/25 via-blue to-blue-deep"
           />
           {[tenth, twelfth].map((m, i) => (
             <Reveal key={m.id} delay={i * 0.08} className="relative pl-24">
