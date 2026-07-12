@@ -1,9 +1,16 @@
 import { motion, useReducedMotion } from "framer-motion";
-import { Quote, Rocket, Globe, Zap, Target, Users, Heart, CheckCircle2, Building2 } from "lucide-react";
+import type { ReactNode } from "react";
+import { Quote, Rocket, Globe, Zap, Target, Users, Heart, CheckCircle2 } from "lucide-react";
 import { profile } from "@/data/profile";
 import { traits, capabilityLabels, journeyMilestones } from "@/data/about";
 import { Reveal } from "@/components/motion/Reveal";
 import { SectionHeading } from "@/components/motion/SectionHeading";
+import { LinkedInIcon, InstagramIcon } from "@/components/icons/SocialIcons";
+import pibythreeLogo from "@/assets/pibythree.png";
+
+const AIBYDM_URL = "https://dipakmandlik.github.io/AIByDM/";
+const AIBYDM_LINKEDIN = "https://www.linkedin.com/company/107923947/";
+const AIBYDM_INSTAGRAM = "https://www.instagram.com/_aibydm_";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 
@@ -112,7 +119,7 @@ function QuoteCard({ className }: { className: string }) {
 
 function JourneyTile({ milestone }: { milestone: (typeof journeyMilestones)[number] }) {
   return (
-    <div className="w-64 shrink-0 snap-start rounded-2xl border border-line bg-white p-5">
+    <div className="w-64 shrink-0 rounded-2xl border border-line bg-white p-5">
       <p className="text-xs uppercase tracking-[0.14em] text-ink-soft">
         {milestone.year} · {milestone.tag}
       </p>
@@ -126,6 +133,48 @@ function JourneyTile({ milestone }: { milestone: (typeof journeyMilestones)[numb
         ))}
       </div>
     </div>
+  );
+}
+
+function AiByDmBadge() {
+  return (
+    <div className="grid size-11 shrink-0 place-items-center rounded-xl bg-gradient-to-br from-blue to-blue-deep">
+      <svg viewBox="0 0 24 24" className="size-6" fill="none" aria-hidden>
+        <path
+          d="M12 12 6 7M12 12 18 7M12 12 6 17M12 12 18 17"
+          stroke="#fff"
+          strokeWidth="0.9"
+          opacity="0.6"
+        />
+        <circle cx="12" cy="12" r="2.4" fill="#fff" />
+        <circle cx="6" cy="7" r="1.3" fill="#fff" opacity="0.85" />
+        <circle cx="18" cy="7" r="1.3" fill="#fff" opacity="0.85" />
+        <circle cx="6" cy="17" r="1.3" fill="#fff" opacity="0.85" />
+        <circle cx="18" cy="17" r="1.3" fill="#fff" opacity="0.85" />
+      </svg>
+    </div>
+  );
+}
+
+function IconLink({
+  href,
+  label,
+  children,
+}: {
+  href: string;
+  label: string;
+  children: ReactNode;
+}) {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noreferrer"
+      aria-label={label}
+      className="grid size-8 shrink-0 place-items-center overflow-hidden rounded-lg transition-transform hover:scale-105"
+    >
+      {children}
+    </a>
   );
 }
 
@@ -217,23 +266,47 @@ export function About() {
           <h3 className="font-display text-3xl text-ink">
             My <span className="text-blue">Journey</span>
           </h3>
-          <div className="mt-8 flex snap-x snap-mandatory gap-5 overflow-x-auto pb-4 [scrollbar-width:thin]">
-            {journeyMilestones.map((m) => (
-              <JourneyTile key={`${m.year}-${m.title}`} milestone={m} />
-            ))}
+          <p className="mt-2 text-sm text-ink-soft">Every step so far, one after another.</p>
+
+          <div className="group relative mt-8 overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_4%,black_96%,transparent)]">
+            <div className="flex w-max animate-marquee-slow group-hover:[animation-play-state:paused] motion-reduce:animate-none">
+              <div className="flex gap-5 pr-5" aria-hidden={false}>
+                {journeyMilestones.map((m) => (
+                  <JourneyTile key={`${m.year}-${m.title}`} milestone={m} />
+                ))}
+              </div>
+              <div className="flex gap-5 pr-5" aria-hidden>
+                {journeyMilestones.map((m) => (
+                  <JourneyTile key={`${m.year}-${m.title}-dup`} milestone={m} />
+                ))}
+              </div>
+            </div>
           </div>
         </Reveal>
 
         <div className="mt-8 grid grid-cols-1 gap-6 lg:grid-cols-3">
           <Reveal delay={0.05}>
             <div className="h-full rounded-2xl border border-line bg-white p-6">
-              <div className="flex items-center gap-3">
-                <div className="grid size-10 place-items-center rounded-xl bg-blue/10">
-                  <Users className="size-5 text-blue" />
+              <div className="flex items-start justify-between gap-3">
+                <div className="flex items-center gap-3">
+                  <AiByDmBadge />
+                  <div>
+                    <p className="font-display text-lg text-ink">AIByDM</p>
+                    <p className="text-xs text-ink-soft">Community for Builders, Learners & Doers</p>
+                  </div>
                 </div>
-                <div>
-                  <p className="font-display text-lg text-ink">AIByDM</p>
-                  <p className="text-xs text-ink-soft">Community for Builders, Learners & Doers</p>
+                <div className="flex shrink-0 items-center gap-1.5">
+                  <IconLink href={AIBYDM_URL} label="AIByDM website">
+                    <div className="grid size-8 place-items-center rounded-lg bg-blue/10">
+                      <Globe className="size-4 text-blue" />
+                    </div>
+                  </IconLink>
+                  <IconLink href={AIBYDM_LINKEDIN} label="AIByDM on LinkedIn">
+                    <LinkedInIcon className="size-8" />
+                  </IconLink>
+                  <IconLink href={AIBYDM_INSTAGRAM} label="AIByDM on Instagram">
+                    <InstagramIcon className="size-8" />
+                  </IconLink>
                 </div>
               </div>
               <p className="mt-4 text-sm text-ink-soft">
@@ -251,9 +324,7 @@ export function About() {
           <Reveal delay={0.1}>
             <div className="h-full rounded-2xl border border-line bg-white p-6">
               <div className="flex items-center gap-3">
-                <div className="grid size-10 place-items-center rounded-xl bg-blue/10">
-                  <Building2 className="size-5 text-blue" />
-                </div>
+                <img src={pibythreeLogo} alt="PibyThree logo" className="h-9 w-auto" />
                 <div>
                   <p className="font-display text-lg text-ink">PibyThree</p>
                   <p className="text-xs text-ink-soft">Shaping the Future with Data & AI</p>
