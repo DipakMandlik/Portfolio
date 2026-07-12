@@ -373,3 +373,17 @@ export function DeltaLakeLogo({ className }: IconProps) {
     </svg>
   );
 }
+
+export function DatadogLogo({ className }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} fill="none" aria-hidden>
+      <g fill="#632CA6">
+        <ellipse cx="8.2" cy="7.5" rx="1.7" ry="2.2" transform="rotate(-18 8.2 7.5)" />
+        <ellipse cx="13.2" cy="6.3" rx="1.7" ry="2.2" transform="rotate(6 13.2 6.3)" />
+        <ellipse cx="17.1" cy="9.6" rx="1.6" ry="2.1" transform="rotate(28 17.1 9.6)" />
+        <ellipse cx="6.2" cy="12.3" rx="1.6" ry="2.1" transform="rotate(-28 6.2 12.3)" />
+        <path d="M12 11c2.6 0 5.5 1.7 5.5 4.6 0 2.5-2 4.4-5.5 4.4s-5.5-1.9-5.5-4.4C6.5 12.7 9.4 11 12 11Z" />
+      </g>
+    </svg>
+  );
+}
