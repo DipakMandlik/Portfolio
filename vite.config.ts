@@ -17,12 +17,21 @@ export default defineConfig({
     // Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
     // nitro/vite builds from this
     server: { entry: "server" },
-    ...(isGhPagesBuild ? { basepath: ghPagesBase.slice(0, -1) } : {}),
+    ...(isGhPagesBuild
+      ? {
+          basepath: ghPagesBase.slice(0, -1),
+          // Prerender the (single) route to real static HTML — TanStack Start's own
+          // basepath-aware prerenderer, not Nitro's, which doesn't know about basepath.
+          prerender: { enabled: true, crawlLinks: true },
+        }
+      : {}),
   },
   ...(isGhPagesBuild
     ? {
         vite: { base: ghPagesBase },
-        nitro: { preset: "github-pages" },
+        // Plain static preset (not "github-pages"): that preset hardcodes a
+        // "/" + "/404.html" crawl list that 404s once basepath is non-root.
+        nitro: { preset: "static" },
       }
     : {}),
 });
