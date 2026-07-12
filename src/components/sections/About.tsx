@@ -3,9 +3,7 @@ import { useRef } from "react";
 import { profile } from "@/data/profile";
 import { Reveal } from "@/components/motion/Reveal";
 import { SectionHeading } from "@/components/motion/SectionHeading";
-import portraitAsset from "@/assets/portrait-dipak.jpg.asset.json";
-
-const portrait = portraitAsset.url;
+import portrait from "@/assets/portrait.jpg";
 
 export function About() {
   const ref = useRef<HTMLDivElement>(null);
