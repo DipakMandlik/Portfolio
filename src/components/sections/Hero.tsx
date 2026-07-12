@@ -102,16 +102,18 @@ export function Hero() {
         transition={{ delay: 1.6, duration: 1 }}
         className="container-x relative flex items-end justify-between pb-10"
       >
-        <span className="text-xs uppercase tracking-[0.2em] text-ink-soft">
-          Scroll
-        </span>
-        <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut" }}
-          aria-hidden
-        >
-          <ArrowDown className="size-4 text-ink-soft" />
-        </motion.div>
+        <div className="flex flex-col items-center gap-3">
+          <span className="text-xs uppercase tracking-[0.2em] text-ink-soft">
+            Scroll
+          </span>
+          <motion.div
+            animate={{ y: [0, 8, 0] }}
+            transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut" }}
+            aria-hidden
+          >
+            <ArrowDown className="size-4 text-ink-soft" />
+          </motion.div>
+        </div>
         <span className="text-xs uppercase tracking-[0.2em] text-ink-soft">
           {new Date().getFullYear()}
         </span>
