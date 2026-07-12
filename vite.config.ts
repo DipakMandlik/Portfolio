@@ -17,19 +17,17 @@ export default defineConfig({
     // Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
     // nitro/vite builds from this
     server: { entry: "server" },
-    ...(isGhPagesBuild
-      ? {
-          basepath: ghPagesBase.slice(0, -1),
-          // Prerender the (single) route to real static HTML — TanStack Start's own
-          // basepath-aware prerenderer, not Nitro's, which doesn't know about basepath.
-          prerender: { enabled: true, crawlLinks: true },
-        }
-      : {}),
+    ...(isGhPagesBuild ? { basepath: ghPagesBase.slice(0, -1) } : {}),
   },
-  // Nitro's own `static`/`github-pages` presets conflict with Start's SSR build
-  // (rollupOptions.input resolves to an html file) and 404 their own basepath-blind
-  // crawl — so leave Nitro's preset untouched and rely solely on
-  // tanstackStart.prerender above for the static HTML; the CI workflow deploys
-  // just the prerendered `.output/public` directory and ignores the server bundle.
-  ...(isGhPagesBuild ? { vite: { base: ghPagesBase } } : {}),
+  // Both Nitro's `static`/`github-pages` presets (rollupOptions.input/html-file
+  // conflict) and Start's own built-in prerender (expects a plain `dist/server/server.js`
+  // layout Nitro doesn't produce here) fail against this Cloudflare-oriented Nitro setup.
+  // So build a plain runnable Node server instead — the CI workflow boots it, curls the
+  // page to capture static HTML itself, and ships that + the client assets to Pages.
+  ...(isGhPagesBuild
+    ? {
+        vite: { base: ghPagesBase },
+        nitro: { preset: "node-server" },
+      }
+    : {}),
 });

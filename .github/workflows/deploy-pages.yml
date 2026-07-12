@@ -28,6 +28,27 @@ jobs:
 
       - run: bun run build:pages
 
+      # Start's built-in prerender doesn't work with this Cloudflare-oriented Nitro
+      # setup, so capture the static HTML ourselves: boot the built Node server,
+      # curl the page, save it, then shut the server down.
+      - name: Capture static HTML from the built server
+        run: |
+          PORT=3000 node .output/server/index.mjs &
+          SERVER_PID=$!
+          for i in $(seq 1 30); do
+            if curl -sf http://localhost:3000/dipak-mandlik-portfolio/ -o /tmp/index.html; then
+              break
+            fi
+            sleep 1
+          done
+          if [ ! -s /tmp/index.html ]; then
+            echo "Failed to capture rendered HTML" >&2
+            kill "$SERVER_PID" 2>/dev/null || true
+            exit 1
+          fi
+          cp /tmp/index.html .output/public/index.html
+          kill "$SERVER_PID" 2>/dev/null || true
+
       - run: touch .output/public/.nojekyll
 
       - uses: actions/configure-pages@v5
