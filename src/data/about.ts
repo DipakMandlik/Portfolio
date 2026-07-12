@@ -1,17 +1,40 @@
-import { Code2, Brain, Users, Sparkles, Bot, Snowflake, TrendingUp, GitBranch } from "lucide-react";
+import type { ReactElement } from "react";
+import { Puzzle, Bot, Users, Sparkles, Brain, Package, Rocket, Cloud, Code2 } from "lucide-react";
+import { SnowflakeLogo, GitHubLogo } from "@/components/icons/TechIcons";
 
 export const traits = [
-  { icon: Code2, title: "Engineer at Heart", body: "Building scalable systems with clean code." },
-  { icon: Brain, title: "AI Enthusiast", body: "Exploring the frontier of intelligence & automation." },
-  { icon: Users, title: "Community Builder", body: "Sharing knowledge and empowering others." },
+  {
+    icon: Puzzle,
+    title: "Problem Solver",
+    body: "I love turning complex challenges into simple, scalable solutions.",
+  },
+  {
+    icon: Bot,
+    title: "AI Builder",
+    body: "I build AI-powered systems and automations that create leverage.",
+  },
+  {
+    icon: Users,
+    title: "Community Builder",
+    body: "I share knowledge and empower builders to learn, build and ship.",
+  },
 ];
 
-export const capabilityLabels = [
-  { icon: Sparkles, label: "AI Agents & Automation" },
-  { icon: Bot, label: "GenAI & LLMs" },
-  { icon: Snowflake, label: "Snowflake & Data Platforms" },
-  { icon: TrendingUp, label: "Enterprise Products" },
-  { icon: GitBranch, label: "Open Source & Community" },
+export type OrbitalNode = {
+  icon: (props: { className?: string }) => ReactElement;
+  title: string;
+  body: string;
+};
+
+export const orbitalNodes: OrbitalNode[] = [
+  { icon: Sparkles, title: "AI Agents", body: "Intelligent automation that works for you." },
+  { icon: Brain, title: "GenAI", body: "Building next-gen AI experiences." },
+  { icon: SnowflakeLogo, title: "Snowflake", body: "Modern data platform for the AI era." },
+  { icon: Package, title: "Enterprise Products", body: "Scalable products that solve real problems." },
+  { icon: Rocket, title: "Automation", body: "Workflow automation that saves time." },
+  { icon: Cloud, title: "Cloud", body: "Building on modern cloud infrastructure." },
+  { icon: GitHubLogo, title: "Open Source", body: "Building in public. Giving back." },
+  { icon: Code2, title: "System Design", body: "Designing scalable, reliable architectures." },
 ];
 
 export const journeyMilestones = [

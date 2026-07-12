@@ -24,6 +24,9 @@ import {
   DatabricksLogo,
   AzureLogo,
   GoogleCloudLogo,
+  SparkLogo,
+  ApacheIcebergLogo,
+  DeltaLakeLogo,
 } from "@/components/icons/TechIcons";
 
 export type ToolIcon = (props: { className?: string }) => ReactElement;
@@ -52,10 +55,17 @@ export const toolkitCategories: ToolkitCategory[] = [
     badgeBg: "bg-blue/10 text-blue",
     topTools: [
       { name: "Snowflake", icon: SnowflakeLogo },
+      { name: "Databricks", icon: DatabricksLogo },
       { name: "dbt", icon: DbtLogo },
       { name: "SQL", icon: SqlLogo },
       { name: "Apache Airflow", icon: ApacheAirflowLogo },
+      { name: "Python", icon: PythonLogo },
+      { name: "Spark", icon: SparkLogo },
       { name: "Fivetran", icon: FivetranLogo },
+      { name: "Apache Iceberg", icon: ApacheIcebergLogo },
+      { name: "Delta Lake", icon: DeltaLakeLogo },
+      { name: "Azure", icon: AzureLogo },
+      { name: "AWS", icon: AwsLogo },
     ],
     whatIDo: [
       "ETL/ELT Pipeline Development",

@@ -339,3 +339,37 @@ export function GoogleCloudLogo({ className }: IconProps) {
     </svg>
   );
 }
+
+export function SparkLogo({ className }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} fill="none" aria-hidden>
+      <path
+        d="M12 2.5c-1 3-3.5 4.6-3.5 7.8 0 2.2 1.6 4 3.5 4s3.5-1.8 3.5-4c0-1.4-.6-2.3-1.3-3.2.2 1-.1 1.9-1 2.6.2-1.6-.3-2.7-1.2-4a6 6 0 0 0 0-3.2Z"
+        fill="#E25A1C"
+      />
+      <path
+        d="M7.5 15.2c1.2 1 2.8 1.6 4.5 1.6s3.3-.6 4.5-1.6c-.3 2.7-2.3 4.8-4.5 4.8s-4.2-2.1-4.5-4.8Z"
+        fill="#E25A1C"
+        opacity="0.6"
+      />
+    </svg>
+  );
+}
+
+export function ApacheIcebergLogo({ className }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} fill="none" aria-hidden>
+      <path d="M12 3 5 20h4l3-6 3 6h4Z" fill="#0B2A6B" />
+      <path d="M12 3 9 20h3Z" fill="#2f6bff" opacity="0.5" />
+    </svg>
+  );
+}
+
+export function DeltaLakeLogo({ className }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} fill="none" aria-hidden>
+      <path d="M12 3.5 21 20H3Z" fill="#00ADD4" />
+      <path d="M12 3.5 21 20h-4.5Z" fill="#0B7285" opacity="0.7" />
+    </svg>
+  );
+}

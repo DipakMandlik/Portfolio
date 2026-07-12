@@ -1,7 +1,129 @@
 import { useEffect, useRef } from "react";
-import { experience } from "@/data/experience";
+import { motion } from "framer-motion";
+import { CheckCircle2, Sparkles } from "lucide-react";
+import { experience, type Role } from "@/data/experience";
 import { Reveal } from "@/components/motion/Reveal";
 import { SectionHeading } from "@/components/motion/SectionHeading";
+
+const EASE = [0.16, 1, 0.3, 1] as const;
+
+function AiByDmMark() {
+  return (
+    <div className="grid size-11 shrink-0 place-items-center rounded-xl bg-gradient-to-br from-blue to-blue-deep">
+      <svg viewBox="0 0 24 24" className="size-6" fill="none" aria-hidden>
+        <path
+          d="M12 12 6 7M12 12 18 7M12 12 6 17M12 12 18 17"
+          stroke="#fff"
+          strokeWidth="0.9"
+          opacity="0.6"
+        />
+        <circle cx="12" cy="12" r="2.4" fill="#fff" />
+        <circle cx="6" cy="7" r="1.3" fill="#fff" opacity="0.85" />
+        <circle cx="18" cy="7" r="1.3" fill="#fff" opacity="0.85" />
+        <circle cx="6" cy="17" r="1.3" fill="#fff" opacity="0.85" />
+        <circle cx="18" cy="17" r="1.3" fill="#fff" opacity="0.85" />
+      </svg>
+    </div>
+  );
+}
+
+function ExperienceCard({ role }: { role: Role }) {
+  return (
+    <motion.div
+      whileHover={{ y: -4 }}
+      transition={{ duration: 0.3, ease: EASE }}
+      className="group rounded-2xl border border-line bg-white p-6 shadow-[0_1px_2px_rgba(10,10,11,0.04)] transition-[box-shadow,border-color] duration-300 hover:border-blue/25 hover:shadow-[0_30px_65px_-35px_rgba(26,86,219,0.4)] sm:p-7"
+    >
+      <div className="flex items-start justify-between gap-4">
+        <div className="flex items-center gap-3.5">
+          {role.useAiByDmBadge ? (
+            <AiByDmMark />
+          ) : role.logo ? (
+            <img
+              src={role.logo}
+              alt={`${role.company} logo`}
+              className="size-11 shrink-0 rounded-xl border border-line bg-white object-contain p-1.5"
+            />
+          ) : null}
+          <div>
+            <p className="font-display text-xl text-ink sm:text-2xl">{role.company}</p>
+            <p className="text-sm text-ink-soft">{role.title}</p>
+          </div>
+        </div>
+        <span className="hidden shrink-0 text-xs font-medium uppercase tracking-[0.14em] text-ink-soft md:block">
+          {role.dates}
+        </span>
+      </div>
+
+      <div className="mt-1 flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-ink-soft md:hidden">
+        <span className="font-medium uppercase tracking-[0.14em]">{role.dates}</span>
+      </div>
+      {role.location && <p className="mt-1 text-xs text-ink-soft">{role.location}</p>}
+
+      <p className="mt-4 text-sm leading-relaxed text-ink-soft">{role.description}</p>
+
+      <ul className="mt-4 space-y-2">
+        {role.achievements.map((item, j) => (
+          <li key={j} className="flex gap-2.5 text-sm leading-relaxed text-ink-soft">
+            <CheckCircle2 className="mt-0.5 size-4 shrink-0 text-blue" />
+            <span>{item}</span>
+          </li>
+        ))}
+      </ul>
+
+      {role.tags.length > 0 && (
+        <div className="mt-4 flex flex-wrap gap-1.5">
+          {role.tags.map((tag) => (
+            <span
+              key={tag}
+              className="rounded-full bg-bg-porcelain px-2.5 py-1 text-xs text-ink-soft"
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
+      )}
+
+      {role.tech && role.tech.length > 0 && (
+        <div className="mt-4 border-t border-line pt-4">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-ink-soft/70">
+            Technologies
+          </p>
+          <div className="mt-2 flex flex-wrap gap-1.5">
+            {role.tech.map((t) => (
+              <span
+                key={t}
+                className="rounded-full border border-blue/20 bg-blue/5 px-2.5 py-1 text-xs font-medium text-blue"
+              >
+                {t}
+              </span>
+            ))}
+          </div>
+        </div>
+      )}
+
+      <div className="mt-5 flex items-start gap-2.5 rounded-xl bg-blue/5 p-3.5">
+        <Sparkles className="mt-0.5 size-4 shrink-0 text-blue" />
+        <p className="text-xs leading-relaxed text-ink">
+          <span className="font-semibold">Impact — </span>
+          {role.impact}
+        </p>
+      </div>
+
+      {role.award && (
+        <div className="mt-5 inline-flex -rotate-1 items-center gap-3 rounded-xl border border-line bg-white p-2 shadow-[0_12px_30px_-20px_rgba(10,10,11,0.3)]">
+          <img
+            src={role.award.image}
+            alt={role.award.caption}
+            className="h-24 w-32 rounded-lg object-cover"
+            loading="lazy"
+          />
+          <span className="max-w-[8rem] pr-2 text-xs text-ink-soft">{role.award.caption}</span>
+        </div>
+      )}
+    </motion.div>
+  );
+}
 
 export function Experience() {
   const pathRef = useRef<SVGPathElement>(null);
@@ -125,48 +247,7 @@ export function Experience() {
                     aria-hidden
                     className="absolute left-[-7px] top-2 hidden h-3 w-3 rounded-full border-2 border-bg-porcelain bg-blue shadow-[0_0_0_4px_rgba(59,130,246,0.15)] md:block"
                   />
-
-                  <div className="text-xs uppercase tracking-[0.18em] text-ink-soft md:hidden">
-                    {role.dates}
-                  </div>
-                  <h3 className="mt-2 font-display text-2xl text-ink sm:text-3xl">
-                    {role.title}
-                  </h3>
-                  <p className="mt-1 flex items-center gap-2 text-base text-ink-soft">
-                    {role.logo && (
-                      <img
-                        src={role.logo}
-                        alt={`${role.company} logo`}
-                        className="h-5 w-auto object-contain"
-                      />
-                    )}
-                    {role.company}
-                    {role.location ? ` · ${role.location}` : ""}
-                  </p>
-                  <ul className="mt-5 space-y-2.5 text-ink-soft">
-                    {role.bullets.map((b, j) => (
-                      <li key={j} className="flex gap-3 leading-relaxed">
-                        <span
-                          aria-hidden
-                          className="mt-2.5 inline-block h-px w-3 flex-shrink-0 bg-ink-soft/50"
-                        />
-                        <span>{b}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  {role.award && (
-                    <div className="mt-5 inline-flex -rotate-1 items-center gap-3 rounded-xl border border-line bg-white p-2 shadow-[0_12px_30px_-20px_rgba(10,10,11,0.3)]">
-                      <img
-                        src={role.award.image}
-                        alt={role.award.caption}
-                        className="h-24 w-32 rounded-lg object-cover"
-                        loading="lazy"
-                      />
-                      <span className="max-w-[8rem] pr-2 text-xs text-ink-soft">
-                        {role.award.caption}
-                      </span>
-                    </div>
-                  )}
+                  <ExperienceCard role={role} />
                 </Reveal>
               </div>
             ))}

@@ -1,9 +1,9 @@
+import { useMemo, type ReactNode, type CSSProperties } from "react";
 import { motion, useReducedMotion } from "framer-motion";
-import type { ReactNode } from "react";
-import { Quote, Rocket, Globe, Zap, Target, Users, Heart, CheckCircle2 } from "lucide-react";
+import { Quote, Rocket, Globe, Zap, Target, Users, Heart, CheckCircle2, ArrowRight } from "lucide-react";
 import { profile } from "@/data/profile";
-import { traits, capabilityLabels, journeyMilestones } from "@/data/about";
-import { Reveal } from "@/components/motion/Reveal";
+import { traits, orbitalNodes, journeyMilestones, type OrbitalNode } from "@/data/about";
+import { Reveal, RevealStagger, revealItem } from "@/components/motion/Reveal";
 import { SectionHeading } from "@/components/motion/SectionHeading";
 import { LinkedInIcon, InstagramIcon } from "@/components/icons/SocialIcons";
 import pibythreeLogo from "@/assets/pibythree.png";
@@ -24,96 +24,209 @@ function TraitCard({
   body: string;
 }) {
   return (
-    <div className="rounded-2xl border border-line bg-white p-5">
-      <div className="grid size-9 place-items-center rounded-xl bg-blue/10">
-        <Icon className="size-4.5 text-blue" />
-      </div>
-      <p className="mt-3 text-sm font-semibold text-ink">{title}</p>
-      <p className="mt-1 text-sm text-ink-soft">{body}</p>
-    </div>
-  );
-}
-
-function CapabilityPill({
-  icon: Icon,
-  label,
-  className,
-  delay,
-}: {
-  icon: (typeof capabilityLabels)[number]["icon"];
-  label: string;
-  className: string;
-  delay: number;
-}) {
-  return (
     <motion.div
-      aria-hidden
-      className={
-        "absolute inline-flex items-center gap-2 whitespace-nowrap rounded-xl border border-line/70 bg-white/90 px-3 py-2 text-xs font-medium text-ink shadow-[0_16px_40px_-20px_rgba(10,10,11,0.35)] backdrop-blur-md " +
-        className
-      }
-      initial={{ opacity: 0, y: 16 }}
-      animate={{ opacity: 1, y: [0, -8, 0] }}
-      transition={{
-        opacity: { duration: 1, delay },
-        y: { duration: 6, repeat: Infinity, ease: "easeInOut", delay },
-      }}
+      whileHover={{ y: -3 }}
+      transition={{ duration: 0.25, ease: EASE }}
+      className="group flex items-start justify-between gap-4 rounded-2xl border border-line bg-white/80 p-5 backdrop-blur-sm transition-[box-shadow,border-color] duration-300 hover:border-blue/30 hover:shadow-[0_20px_45px_-25px_rgba(26,86,219,0.35)]"
     >
-      <Icon className="size-4 text-blue" />
-      {label}
+      <div className="flex items-start gap-4">
+        <div className="grid size-11 shrink-0 place-items-center rounded-xl bg-blue/10 text-blue transition-colors duration-300 group-hover:bg-blue group-hover:text-white">
+          <Icon className="size-5" />
+        </div>
+        <div>
+          <p className="font-display text-lg text-ink">{title}</p>
+          <p className="mt-1 text-sm leading-relaxed text-ink-soft">{body}</p>
+        </div>
+      </div>
+      <div className="mt-1 grid size-8 shrink-0 place-items-center rounded-full border border-line text-ink-soft transition-all duration-300 group-hover:translate-x-0.5 group-hover:border-blue group-hover:bg-blue group-hover:text-white">
+        <ArrowRight className="size-4" />
+      </div>
     </motion.div>
   );
 }
 
-function NetworkOrb() {
+const ORBITAL_POSITIONS: CSSProperties[] = [
+  { top: "3%", left: "21%" },
+  { top: "3%", right: "16%" },
+  { top: "27%", left: "-2%" },
+  { top: "27%", right: "-4%" },
+  { top: "51%", left: "-2%" },
+  { top: "51%", right: "-4%" },
+  { top: "75%", left: "12%" },
+  { top: "75%", right: "8%" },
+];
+
+function OrbitalCard({
+  node,
+  position,
+  delay,
+}: {
+  node: OrbitalNode;
+  position: CSSProperties;
+  delay: number;
+}) {
+  const Icon = node.icon;
+  return (
+    <motion.div
+      className="absolute z-10 hidden w-[200px] lg:block"
+      style={position}
+      initial={{ opacity: 0, y: 14 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-80px" }}
+      transition={{ duration: 0.8, delay, ease: EASE }}
+    >
+      <motion.div
+        animate={{ y: [0, -8, 0] }}
+        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay }}
+        whileHover={{ scale: 1.05, y: -10, transition: { duration: 0.25 } }}
+        className="flex items-start gap-3 rounded-2xl border border-line/70 bg-white/90 p-3.5 shadow-[0_20px_45px_-25px_rgba(10,10,11,0.3)] backdrop-blur-md transition-shadow duration-300 hover:border-blue/30 hover:shadow-[0_25px_55px_-20px_rgba(26,86,219,0.4)]"
+      >
+        <div className="grid size-9 shrink-0 place-items-center rounded-lg bg-blue/10 text-blue">
+          <Icon className="size-4.5" />
+        </div>
+        <div>
+          <p className="text-sm font-semibold text-ink">{node.title}</p>
+          <p className="mt-0.5 text-xs leading-snug text-ink-soft">{node.body}</p>
+        </div>
+      </motion.div>
+    </motion.div>
+  );
+}
+
+function SpiralVortex() {
   const reduce = useReducedMotion();
-  const nodes = Array.from({ length: 10 }, (_, i) => {
-    const angle = (i / 10) * Math.PI * 2;
-    return { x: 50 + 42 * Math.cos(angle), y: 50 + 42 * Math.sin(angle) };
-  });
+  const dots = useMemo(() => {
+    const N = 170;
+    const ARMS = 4;
+    const TURNS = 2.6;
+    return Array.from({ length: N }, (_, i) => {
+      const t = i / N;
+      const arm = i % ARMS;
+      const armOffset = (arm / ARMS) * Math.PI * 2;
+      const radius = 47 * t;
+      const angle = armOffset + (1 - t) * TURNS * Math.PI * 2;
+      const x = 50 + radius * Math.cos(angle);
+      const y = 50 + radius * Math.sin(angle);
+      const size = 0.5 + t * 1.5;
+      const edgeFade = t > 0.86 ? Math.max(0, 1 - (t - 0.86) / 0.14) : 1;
+      const opacity = Math.max(0.06, Math.min(0.85, t * 1.1)) * edgeFade;
+      return { x, y, size, opacity };
+    });
+  }, []);
+
   return (
     <div aria-hidden className="absolute inset-0">
-      <div className="absolute inset-0 rounded-full bg-[radial-gradient(55%_55%_at_50%_45%,rgba(47,107,255,0.24),transparent_75%)] blur-3xl" />
+      <div className="absolute inset-0 rounded-full bg-[radial-gradient(45%_45%_at_50%_50%,rgba(47,107,255,0.16),transparent_75%)] blur-2xl" />
+
+      <motion.div
+        className="absolute inset-[8%] rounded-full border border-blue/15"
+        animate={reduce ? undefined : { rotate: 360 }}
+        transition={{ duration: 90, repeat: Infinity, ease: "linear" }}
+      />
+      <motion.div
+        className="absolute inset-[-4%] rounded-full border border-dashed border-blue/10"
+        animate={reduce ? undefined : { rotate: -360 }}
+        transition={{ duration: 130, repeat: Infinity, ease: "linear" }}
+      />
+
       <motion.svg
         viewBox="0 0 100 100"
         className="relative h-full w-full"
+        style={{ willChange: "transform" }}
         animate={reduce ? undefined : { rotate: 360 }}
-        transition={{ duration: 140, repeat: Infinity, ease: "linear" }}
+        transition={{ duration: 200, repeat: Infinity, ease: "linear" }}
       >
-        <circle cx="50" cy="50" r="42" fill="none" stroke="rgba(47,107,255,0.18)" strokeDasharray="1.5 3.5" />
-        {nodes.map((n, i) => (
-          <g key={i}>
-            <line x1="50" y1="50" x2={n.x} y2={n.y} stroke="rgba(47,107,255,0.2)" strokeWidth="0.3" />
-            <circle cx={n.x} cy={n.y} r="1.3" fill="#2f6bff" />
-          </g>
+        {dots.map((d, i) => (
+          <circle key={i} cx={d.x} cy={d.y} r={d.size / 2} fill="#2f6bff" opacity={d.opacity} />
         ))}
       </motion.svg>
+
       <motion.div
-        className="absolute left-1/2 top-1/2 size-20 -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-br from-blue to-blue-deep"
-        style={{ boxShadow: "0 0 70px rgba(47,107,255,0.5)" }}
-        animate={reduce ? undefined : { scale: [1, 1.06, 1] }}
+        className="absolute left-1/2 top-1/2 size-6 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white"
+        style={{ boxShadow: "0 0 40px 12px rgba(255,255,255,0.9), 0 0 70px 30px rgba(47,107,255,0.35)" }}
+        animate={reduce ? undefined : { scale: [1, 1.15, 1] }}
         transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
       />
     </div>
   );
 }
 
-function QuoteCard({ className }: { className: string }) {
+const PARTICLES = [
+  { top: "4%", left: "0%", size: 6, duration: 5 },
+  { top: "12%", left: "94%", size: 5, duration: 6.5 },
+  { top: "45%", left: "0%", size: 4, duration: 5.8 },
+  { top: "90%", left: "4%", size: 5, duration: 6.2 },
+  { top: "94%", left: "88%", size: 6, duration: 5.4 },
+  { top: "42%", left: "98%", size: 4, duration: 6.8 },
+];
+
+function ScatterParticles() {
+  const reduce = useReducedMotion();
   return (
-    <motion.div
-      aria-hidden
-      className={
-        "absolute rounded-2xl border border-line/70 bg-white/95 p-4 shadow-[0_24px_60px_-25px_rgba(10,10,11,0.3)] backdrop-blur-md " +
-        className
-      }
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 1, delay: 1.4, ease: EASE }}
-    >
-      <Quote className="size-5 text-blue/40" fill="currentColor" strokeWidth={0} />
-      <p className="mt-1 max-w-[200px] text-sm text-ink">Build technology that makes a difference.</p>
-      <p className="mt-2 font-signature text-2xl text-blue">{profile.name}</p>
-    </motion.div>
+    <div aria-hidden className="pointer-events-none absolute inset-0 hidden lg:block">
+      {PARTICLES.map((p, i) => (
+        <motion.span
+          key={i}
+          className="absolute rounded-full bg-blue/40"
+          style={{ top: p.top, left: p.left, width: p.size, height: p.size }}
+          animate={reduce ? undefined : { y: [0, -10, 0], opacity: [0.35, 0.9, 0.35] }}
+          transition={{ duration: p.duration, repeat: Infinity, ease: "easeInOut", delay: i * 0.4 }}
+        />
+      ))}
+    </div>
+  );
+}
+
+function OrbitalVisualization() {
+  return (
+    <div className="relative mx-auto max-w-md lg:max-w-none lg:min-h-[600px]">
+      <div className="relative mx-auto aspect-square w-full max-w-xs lg:absolute lg:left-1/2 lg:top-[4%] lg:max-w-[300px] lg:-translate-x-1/2">
+        <SpiralVortex />
+      </div>
+
+      <ScatterParticles />
+
+      {orbitalNodes.map((node, i) => (
+        <OrbitalCard key={node.title} node={node} position={ORBITAL_POSITIONS[i]} delay={0.08 * i} />
+      ))}
+
+      <div className="mt-8 grid grid-cols-2 gap-3 lg:hidden">
+        {orbitalNodes.map((node) => {
+          const Icon = node.icon;
+          return (
+            <div key={node.title} className="rounded-xl border border-line bg-white p-3">
+              <div className="grid size-8 place-items-center rounded-lg bg-blue/10 text-blue">
+                <Icon className="size-4" />
+              </div>
+              <p className="mt-2 text-sm font-semibold text-ink">{node.title}</p>
+              <p className="mt-0.5 text-xs text-ink-soft">{node.body}</p>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
+function BigQuoteCard() {
+  return (
+    <Reveal delay={0.2} className="relative mt-10 lg:mt-16">
+      <div className="relative overflow-hidden rounded-2xl border border-line bg-white p-8 shadow-[0_20px_50px_-30px_rgba(10,10,11,0.25)]">
+        <Quote className="size-8 text-blue/30" fill="currentColor" strokeWidth={0} />
+        <p className="mt-3 max-w-lg text-pretty font-display text-xl text-ink sm:text-2xl">
+          Building products that solve meaningful problems.
+        </p>
+        <p className="mt-3 font-signature text-2xl text-blue">— {profile.name}</p>
+        <div
+          aria-hidden
+          className="pointer-events-none absolute bottom-6 right-8 hidden grid-cols-4 gap-2 opacity-60 sm:grid"
+        >
+          {Array.from({ length: 12 }).map((_, i) => (
+            <span key={i} className="size-1 rounded-full bg-blue/30" />
+          ))}
+        </div>
+      </div>
+    </Reveal>
   );
 }
 
@@ -202,67 +315,36 @@ export function About() {
   return (
     <section id="about" className="section-pad bg-bg-base">
       <div className="container-x">
-        <SectionHeading
-          eyebrow="About Me"
-          title={
-            <>
-              From curiosity to creating <span className="text-blue">real impact.</span>
-            </>
-          }
-          intro="A builder, learner and engineer — passionate about turning cutting-edge technology into real products that solve meaningful problems and create lasting value."
-        />
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:items-start lg:gap-10">
+          <div className="lg:col-span-5">
+            <SectionHeading
+              eyebrow="About Me"
+              title={
+                <>
+                  From curiosity to creating <span className="text-blue">real impact.</span>
+                </>
+              }
+              intro="I build intelligent systems, automate workflows, and create products that solve meaningful problems and drive real-world impact."
+            />
 
-        <div className="mt-16 grid grid-cols-1 gap-16 lg:grid-cols-12 lg:items-center">
-          <Reveal className="lg:col-span-5" delay={0.05}>
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-3 lg:grid-cols-1">
+            <RevealStagger className="mt-8 space-y-4" delay={0.1}>
               {traits.map((t) => (
-                <TraitCard key={t.title} icon={t.icon} title={t.title} body={t.body} />
+                <motion.div key={t.title} variants={revealItem}>
+                  <TraitCard icon={t.icon} title={t.title} body={t.body} />
+                </motion.div>
               ))}
-            </div>
-          </Reveal>
+            </RevealStagger>
+          </div>
 
-          <Reveal className="lg:col-span-7" delay={0.15}>
-            <div className="relative mx-auto max-w-md lg:max-w-none lg:min-h-[420px]">
-              <div className="relative mx-auto aspect-square w-full max-w-xs lg:absolute lg:left-1/2 lg:top-1/2 lg:max-w-[260px] lg:-translate-x-1/2 lg:-translate-y-1/2">
-                <NetworkOrb />
-              </div>
-
-              <CapabilityPill
-                icon={capabilityLabels[0].icon}
-                label={capabilityLabels[0].label}
-                className="hidden lg:left-0 lg:top-2 lg:block"
-                delay={0.2}
-              />
-              <CapabilityPill
-                icon={capabilityLabels[1].icon}
-                label={capabilityLabels[1].label}
-                className="hidden lg:right-0 lg:top-0 lg:block"
-                delay={0.5}
-              />
-              <CapabilityPill
-                icon={capabilityLabels[2].icon}
-                label={capabilityLabels[2].label}
-                className="hidden lg:-left-4 lg:top-1/2 lg:block lg:-translate-y-1/2"
-                delay={0.8}
-              />
-              <CapabilityPill
-                icon={capabilityLabels[3].icon}
-                label={capabilityLabels[3].label}
-                className="hidden lg:-right-4 lg:top-1/2 lg:block lg:-translate-y-1/2"
-                delay={1.1}
-              />
-              <CapabilityPill
-                icon={capabilityLabels[4].icon}
-                label={capabilityLabels[4].label}
-                className="hidden lg:bottom-0 lg:left-4 lg:block"
-                delay={1.4}
-              />
-              <QuoteCard className="hidden w-56 sm:block sm:bottom-0 sm:left-1/2 sm:-translate-x-1/2 lg:-bottom-20 lg:top-auto" />
-            </div>
-          </Reveal>
+          <div className="lg:col-span-7">
+            <Reveal delay={0.15}>
+              <OrbitalVisualization />
+            </Reveal>
+            <BigQuoteCard />
+          </div>
         </div>
 
-        <Reveal className="mt-24" delay={0.05}>
+        <Reveal className="mt-20 lg:mt-24" delay={0.05}>
           <h3 className="font-display text-3xl text-ink">
             My <span className="text-blue">Journey</span>
           </h3>
