@@ -167,7 +167,7 @@ export function Hero() {
                 />
               </div>
 
-              <QuoteCard className="hidden w-56 sm:block sm:-bottom-8 sm:left-1/2 sm:-translate-x-1/2 lg:-bottom-10 lg:top-auto" />
+              <QuoteCard className="hidden w-56 sm:block sm:top-full sm:mt-6 sm:left-1/2 sm:-translate-x-1/2 sm:bottom-auto lg:mt-8" />
             </div>
           </motion.div>
         </div>
@@ -178,7 +178,7 @@ export function Hero() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-40px" }}
         transition={{ duration: 0.8, ease: EASE }}
-        className="container-x relative mt-20 border-t border-line pt-8 sm:mt-24 lg:mt-16"
+        className="container-x relative mt-20 border-t border-line pt-8 sm:mt-24 lg:mt-40"
       >
         <dl className="grid grid-cols-2 gap-8 sm:grid-cols-4">
           {heroStats.map((s) => (
