@@ -1,6 +1,5 @@
 import { motion, useReducedMotion } from "framer-motion";
 import { ArrowRight, Download, Quote } from "lucide-react";
-import type { ReactNode } from "react";
 import { profile } from "@/data/profile";
 import { heroStats } from "@/data/techStack";
 import portrait from "@/assets/portrait.jpg";
@@ -28,225 +27,27 @@ function RevealWords({ text, delay = 0 }: { text: string; delay?: number }) {
   );
 }
 
-function MiniBarChart({ bars, color }: { bars: number[]; color: string }) {
+function PortraitHalo() {
+  const reduce = useReducedMotion();
   return (
-    <div className="flex items-end gap-1">
-      {bars.map((h, i) => (
-        <span
-          key={i}
-          className="w-1.5 rounded-sm"
-          style={{
-            height: `${h}px`,
-            backgroundColor: color,
-            opacity: 0.35 + (i / bars.length) * 0.5,
-          }}
-        />
-      ))}
+    <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
+      <div className="absolute inset-0 -z-10 rounded-full bg-[radial-gradient(55%_55%_at_50%_45%,rgba(47,107,255,0.22),transparent_75%)] blur-3xl" />
+      <motion.div
+        className="absolute inset-[-6%] rounded-full border border-blue/25"
+        animate={reduce ? undefined : { rotate: 360 }}
+        transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
+      >
+        <span className="absolute left-1/2 top-0 size-2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue/70" />
+      </motion.div>
+      <motion.div
+        className="absolute inset-[-13%] rounded-full border border-dashed border-blue/15"
+        animate={reduce ? undefined : { rotate: -360 }}
+        transition={{ duration: 90, repeat: Infinity, ease: "linear" }}
+      >
+        <span className="absolute left-1/2 top-0 size-1.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue/50" />
+        <span className="absolute bottom-0 left-1/2 size-1.5 -translate-x-1/2 translate-y-1/2 rounded-full bg-blue/50" />
+      </motion.div>
     </div>
-  );
-}
-
-function MiniGauge({
-  percent,
-  color,
-  size = 56,
-}: {
-  percent: number;
-  color: string;
-  size?: number;
-}) {
-  const r = (size - 8) / 2;
-  const c = 2 * Math.PI * r;
-  const offset = c - (percent / 100) * c;
-  return (
-    <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`} aria-hidden>
-      <circle cx={size / 2} cy={size / 2} r={r} fill="none" stroke="var(--line)" strokeWidth="5" />
-      <circle
-        cx={size / 2}
-        cy={size / 2}
-        r={r}
-        fill="none"
-        stroke={color}
-        strokeWidth="5"
-        strokeLinecap="round"
-        strokeDasharray={c}
-        strokeDashoffset={offset}
-        transform={`rotate(-90 ${size / 2} ${size / 2})`}
-      />
-    </svg>
-  );
-}
-
-function Sparkline({ points, color }: { points: number[]; color: string }) {
-  const w = 100;
-  const h = 28;
-  const max = Math.max(...points);
-  const min = Math.min(...points);
-  const norm = points
-    .map((p, i) => {
-      const x = (i / (points.length - 1)) * w;
-      const y = h - ((p - min) / (max - min || 1)) * h;
-      return `${x},${y}`;
-    })
-    .join(" ");
-  return (
-    <svg width="100%" height={h} viewBox={`0 0 ${w} ${h}`} preserveAspectRatio="none" aria-hidden>
-      <polyline
-        points={norm}
-        fill="none"
-        stroke={color}
-        strokeWidth="1.75"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
-
-function FloatingCard({
-  className,
-  rotate = 0,
-  delay = 0,
-  duration = 7,
-  children,
-}: {
-  className: string;
-  rotate?: number;
-  delay?: number;
-  duration?: number;
-  children: ReactNode;
-}) {
-  return (
-    <motion.div
-      aria-hidden
-      className={
-        "absolute rounded-2xl border border-line/70 bg-white/90 p-3.5 shadow-[0_24px_60px_-25px_rgba(10,10,11,0.3)] backdrop-blur-md " +
-        className
-      }
-      style={{ rotate: `${rotate}deg` }}
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: [0, -10, 0] }}
-      transition={{
-        opacity: { duration: 1, delay },
-        y: { duration, repeat: Infinity, ease: "easeInOut", delay },
-      }}
-    >
-      {children}
-    </motion.div>
-  );
-}
-
-function GovernanceCard({ className }: { className: string }) {
-  return (
-    <FloatingCard className={className} rotate={-4} delay={0.2} duration={7.5}>
-      <p className="text-[11px] font-semibold text-ink">Governance Dashboard</p>
-      <div className="mt-3 flex gap-4">
-        <ul className="space-y-1.5 text-[9px] text-ink-soft">
-          <li>Overview</li>
-          <li>Data Quality</li>
-          <li>Assets</li>
-          <li>Policies</li>
-          <li>Lineage</li>
-          <li>Reports</li>
-        </ul>
-        <div className="flex flex-col items-center justify-center">
-          <div className="relative">
-            <MiniGauge percent={92} color="#2f6bff" />
-            <span className="absolute inset-0 grid place-items-center text-[11px] font-semibold text-ink">
-              92%
-            </span>
-          </div>
-          <span className="mt-1 text-[8px] uppercase tracking-wide text-ink-soft">Excellent</span>
-        </div>
-      </div>
-      <div className="mt-3 flex items-center justify-between border-t border-line pt-2 text-[9px] text-ink-soft">
-        <div>
-          <p className="text-xs font-semibold text-ink">1,246</p>
-          <p>Total Events</p>
-        </div>
-        <div>
-          <p className="text-xs font-semibold text-ink">98.6%</p>
-          <p>Policies</p>
-        </div>
-      </div>
-      <div className="mt-2.5">
-        <MiniBarChart bars={[8, 14, 10, 18, 12, 20, 16]} color="#2f6bff" />
-      </div>
-    </FloatingCard>
-  );
-}
-
-function FraudDetectionCard({ className }: { className: string }) {
-  return (
-    <FloatingCard className={className} rotate={3} delay={0.7} duration={6.5}>
-      <p className="text-[11px] font-semibold text-ink">Fraud Detection Platform</p>
-      <p className="mt-2 text-[9px] uppercase tracking-wide text-ink-soft">Live Risk Feed</p>
-      <div className="mt-1">
-        <Sparkline points={[40, 55, 35, 62, 45, 70, 50, 66, 80, 60]} color="#dc4b4b" />
-      </div>
-      <div className="mt-2 flex items-center justify-between border-t border-line pt-2">
-        <div className="flex gap-3 text-[9px] text-ink-soft">
-          <div>
-            <p className="text-xs font-semibold text-ink">24</p>
-            <p>Alerts</p>
-          </div>
-          <div>
-            <p className="text-xs font-semibold text-ink">17</p>
-            <p>Blocked</p>
-          </div>
-        </div>
-        <div className="relative">
-          <MiniGauge percent={87} color="#dc4b4b" size={44} />
-          <span className="absolute inset-0 grid place-items-center text-[10px] font-semibold text-ink">
-            87
-          </span>
-        </div>
-      </div>
-      <p className="mt-1 text-right text-[8px] uppercase tracking-wide text-[#dc4b4b]">High risk</p>
-    </FloatingCard>
-  );
-}
-
-function SnowflakeReportingCard({ className }: { className: string }) {
-  return (
-    <FloatingCard className={className} rotate={-3} delay={1.1} duration={7}>
-      <p className="text-[11px] font-semibold text-ink">Snowflake Reporting</p>
-      <div className="mt-2.5 grid grid-cols-3 gap-2 text-[9px] text-ink-soft">
-        <div>
-          <p className="text-xs font-semibold text-ink">1,399</p>
-          <p>Total Tables</p>
-        </div>
-        <div>
-          <p className="text-xs font-semibold text-ink">248.7M</p>
-          <p>Total Rows</p>
-        </div>
-        <div>
-          <p className="text-xs font-semibold text-ink">98.6%</p>
-          <p>Data Quality</p>
-        </div>
-      </div>
-      <div className="mt-2.5">
-        <MiniBarChart bars={[10, 16, 8, 20, 14, 22, 12, 18, 24, 16]} color="#29b5e8" />
-      </div>
-    </FloatingCard>
-  );
-}
-
-function PipelineBuilderCard({ className }: { className: string }) {
-  const nodes = ["Extract", "Transform", "Validate", "Load"];
-  return (
-    <FloatingCard className={className} rotate={4} delay={1.4} duration={6}>
-      <p className="text-[11px] font-semibold text-ink">Pipeline Builder</p>
-      <ul className="relative mt-3 space-y-3 pl-4">
-        <span className="absolute left-[3px] top-1 bottom-1 w-px bg-line" aria-hidden />
-        {nodes.map((n) => (
-          <li key={n} className="relative text-[9px] text-ink-soft">
-            <span className="absolute -left-4 top-1 size-1.5 rounded-full bg-blue" aria-hidden />
-            {n}
-          </li>
-        ))}
-      </ul>
-    </FloatingCard>
   );
 }
 
@@ -260,7 +61,7 @@ function QuoteCard({ className }: { className: string }) {
       }
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 1, delay: 1.6, ease: EASE }}
+      transition={{ duration: 1, delay: 1.2, ease: EASE }}
     >
       <Quote className="size-5 text-blue/40" fill="currentColor" strokeWidth={0} />
       <p className="mt-1 max-w-[220px] text-sm text-ink">
@@ -342,37 +143,32 @@ export function Hero() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: EASE, delay: 0.5 }}
-            className="relative mx-auto max-w-md lg:max-w-none lg:min-h-[680px]"
+            className="relative mx-auto max-w-lg lg:max-w-none lg:min-h-[600px]"
           >
-            <div
-              aria-hidden
-              className="pointer-events-none absolute -inset-16 -z-10 rounded-full bg-[radial-gradient(55%_55%_at_50%_40%,rgba(47,107,255,0.2),transparent_75%)] blur-3xl lg:left-1/2 lg:top-[340px] lg:-translate-x-1/2 lg:-translate-y-1/2"
-            />
+            <div className="relative mx-auto aspect-square w-full max-w-lg lg:absolute lg:left-1/2 lg:top-1/2 lg:max-w-[480px] lg:-translate-x-1/2 lg:-translate-y-1/2">
+              <PortraitHalo />
 
-            <div
-              className="relative mx-auto aspect-square w-full max-w-sm overflow-hidden lg:absolute lg:left-1/2 lg:top-[340px] lg:max-w-[320px] lg:-translate-x-1/2 lg:-translate-y-1/2"
-              style={{
-                maskImage:
-                  "linear-gradient(to bottom, transparent, black 8%, black 88%, transparent)",
-                WebkitMaskImage:
-                  "linear-gradient(to bottom, transparent, black 8%, black 88%, transparent)",
-              }}
-            >
-              <img
-                src={portrait}
-                alt={`Portrait of ${profile.name}`}
-                width={1024}
-                height={1024}
-                fetchPriority="high"
-                className="h-full w-full object-cover"
-              />
+              <div
+                className="relative h-full w-full overflow-hidden"
+                style={{
+                  maskImage:
+                    "linear-gradient(to bottom, transparent, black 8%, black 88%, transparent)",
+                  WebkitMaskImage:
+                    "linear-gradient(to bottom, transparent, black 8%, black 88%, transparent)",
+                }}
+              >
+                <img
+                  src={portrait}
+                  alt={`Portrait of ${profile.name}`}
+                  width={1024}
+                  height={1024}
+                  fetchPriority="high"
+                  className="h-full w-full object-cover"
+                />
+              </div>
+
+              <QuoteCard className="hidden w-56 sm:block sm:-bottom-8 sm:left-1/2 sm:-translate-x-1/2 lg:bottom-2 lg:left-full lg:ml-[-56px] lg:translate-x-0" />
             </div>
-
-            <PipelineBuilderCard className="hidden w-40 lg:left-0 lg:top-6 lg:block" />
-            <GovernanceCard className="hidden w-44 lg:-right-3 lg:top-0 lg:block" />
-            <FraudDetectionCard className="hidden w-40 lg:right-0 lg:top-64 lg:block" />
-            <SnowflakeReportingCard className="hidden w-44 lg:bottom-0 lg:-right-3 lg:block" />
-            <QuoteCard className="hidden w-56 sm:block sm:bottom-4 sm:left-1/2 sm:-translate-x-1/2 lg:bottom-0 lg:left-0 lg:translate-x-0 lg:block" />
           </motion.div>
         </div>
       </div>
@@ -382,7 +178,7 @@ export function Hero() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-40px" }}
         transition={{ duration: 0.8, ease: EASE }}
-        className="container-x relative mt-20 border-t border-line pt-8 sm:mt-24"
+        className="container-x relative mt-20 border-t border-line pt-8 sm:mt-24 lg:mt-16"
       >
         <dl className="grid grid-cols-2 gap-8 sm:grid-cols-4">
           {heroStats.map((s) => (
