@@ -167,7 +167,7 @@ export function Hero() {
                 />
               </div>
 
-              <QuoteCard className="hidden w-56 sm:block sm:-bottom-8 sm:left-1/2 sm:-translate-x-1/2 lg:bottom-2 lg:left-full lg:ml-[-56px] lg:translate-x-0" />
+              <QuoteCard className="hidden w-56 sm:block sm:-bottom-8 sm:left-1/2 sm:-translate-x-1/2 lg:-bottom-10 lg:top-auto" />
             </div>
           </motion.div>
         </div>

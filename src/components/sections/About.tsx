@@ -208,7 +208,7 @@ export function About() {
                 className="hidden lg:bottom-0 lg:left-4 lg:block"
                 delay={1.4}
               />
-              <QuoteCard className="hidden w-56 sm:block sm:bottom-0 sm:left-1/2 sm:-translate-x-1/2 lg:bottom-2 lg:right-0 lg:left-auto lg:translate-x-0" />
+              <QuoteCard className="hidden w-56 sm:block sm:bottom-0 sm:left-1/2 sm:-translate-x-1/2 lg:-bottom-28 lg:top-auto" />
             </div>
           </Reveal>
         </div>
