@@ -4,6 +4,7 @@ import { ScrollProgress } from "@/components/ScrollProgress";
 import { CustomCursor } from "@/components/CustomCursor";
 import { StickyNav } from "@/components/nav/StickyNav";
 import { Hero } from "@/components/sections/Hero";
+import { TrustedBy } from "@/components/sections/TrustedBy";
 import { About } from "@/components/sections/About";
 import { Experience } from "@/components/sections/Experience";
 import { Skills } from "@/components/sections/Skills";
@@ -70,6 +71,7 @@ function Index() {
       <StickyNav />
       <main>
         <Hero />
+        <TrustedBy />
         <About />
         <Experience />
         <Skills />
