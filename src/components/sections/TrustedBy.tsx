@@ -5,7 +5,7 @@ function MarqueeRow({ ariaHidden }: { ariaHidden?: boolean }) {
     <div className="flex shrink-0 items-center gap-12 pr-12" aria-hidden={ariaHidden}>
       {techStack.map((tech, i) => (
         <span key={i} className="flex items-center gap-2.5 whitespace-nowrap">
-          <tech.icon className="size-5 shrink-0" style={{ color: tech.color }} strokeWidth={1.75} />
+          <tech.icon className="size-6 shrink-0" />
           <span className="text-lg font-medium text-ink-soft sm:text-xl">{tech.name}</span>
         </span>
       ))}

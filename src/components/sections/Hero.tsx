@@ -342,15 +342,15 @@ export function Hero() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: EASE, delay: 0.5 }}
-            className="relative mx-auto max-w-md lg:max-w-none"
+            className="relative mx-auto max-w-md lg:max-w-none lg:min-h-[680px]"
           >
             <div
               aria-hidden
-              className="pointer-events-none absolute -inset-16 -z-10 rounded-full bg-[radial-gradient(55%_55%_at_50%_40%,rgba(47,107,255,0.2),transparent_75%)] blur-3xl"
+              className="pointer-events-none absolute -inset-16 -z-10 rounded-full bg-[radial-gradient(55%_55%_at_50%_40%,rgba(47,107,255,0.2),transparent_75%)] blur-3xl lg:left-1/2 lg:top-[340px] lg:-translate-x-1/2 lg:-translate-y-1/2"
             />
 
             <div
-              className="relative mx-auto aspect-square w-full max-w-sm overflow-hidden lg:max-w-md"
+              className="relative mx-auto aspect-square w-full max-w-sm overflow-hidden lg:absolute lg:left-1/2 lg:top-[340px] lg:max-w-[320px] lg:-translate-x-1/2 lg:-translate-y-1/2"
               style={{
                 maskImage:
                   "linear-gradient(to bottom, transparent, black 8%, black 88%, transparent)",
@@ -368,11 +368,11 @@ export function Hero() {
               />
             </div>
 
-            <PipelineBuilderCard className="hidden w-36 lg:-left-6 lg:top-16 lg:block" />
-            <GovernanceCard className="hidden w-52 lg:-right-4 lg:top-2 lg:block" />
-            <FraudDetectionCard className="hidden w-48 lg:-right-8 lg:top-[15rem] lg:block" />
-            <SnowflakeReportingCard className="hidden w-52 lg:-bottom-6 lg:-right-4 lg:block" />
-            <QuoteCard className="hidden w-56 sm:block sm:bottom-4 sm:left-1/2 sm:-translate-x-1/2 lg:-bottom-6 lg:left-4 lg:translate-x-0" />
+            <PipelineBuilderCard className="hidden w-40 lg:left-0 lg:top-6 lg:block" />
+            <GovernanceCard className="hidden w-44 lg:-right-3 lg:top-0 lg:block" />
+            <FraudDetectionCard className="hidden w-40 lg:right-0 lg:top-64 lg:block" />
+            <SnowflakeReportingCard className="hidden w-44 lg:bottom-0 lg:-right-3 lg:block" />
+            <QuoteCard className="hidden w-56 sm:block sm:bottom-4 sm:left-1/2 sm:-translate-x-1/2 lg:bottom-0 lg:left-0 lg:translate-x-0 lg:block" />
           </motion.div>
         </div>
       </div>

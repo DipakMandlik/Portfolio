@@ -1,28 +1,27 @@
+import type { ReactElement } from "react";
 import {
-  Snowflake,
-  Workflow,
-  Code2,
-  Cloud,
-  Server,
-  Sparkles,
-  Bot,
-  type LucideIcon,
-} from "lucide-react";
+  SnowflakeLogo,
+  DbtLogo,
+  PythonLogo,
+  AzureLogo,
+  AwsLogo,
+  ClaudeLogo,
+  OpenAiLogo,
+} from "@/components/icons/TechIcons";
 
 export type TechStackItem = {
   name: string;
-  icon: LucideIcon;
-  color: string;
+  icon: (props: { className?: string }) => ReactElement;
 };
 
 export const techStack: TechStackItem[] = [
-  { name: "Snowflake", icon: Snowflake, color: "#29B5E8" },
-  { name: "dbt", icon: Workflow, color: "#FF694B" },
-  { name: "Python", icon: Code2, color: "#3776AB" },
-  { name: "Azure", icon: Cloud, color: "#0078D4" },
-  { name: "AWS", icon: Server, color: "#FF9900" },
-  { name: "Claude", icon: Sparkles, color: "#D97757" },
-  { name: "OpenAI", icon: Bot, color: "#10A37F" },
+  { name: "Snowflake", icon: SnowflakeLogo },
+  { name: "dbt", icon: DbtLogo },
+  { name: "Python", icon: PythonLogo },
+  { name: "Azure", icon: AzureLogo },
+  { name: "AWS", icon: AwsLogo },
+  { name: "Claude", icon: ClaudeLogo },
+  { name: "OpenAI", icon: OpenAiLogo },
 ];
 
 export const heroStats = [
