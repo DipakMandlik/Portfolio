@@ -82,14 +82,22 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "author", content: "Dipak Mandlik" },
       { property: "og:site_name", content: "Dipak Mandlik" },
       { property: "og:type", content: "website" },
+      { property: "og:image", content: "https://dmportfolio.qd.je/og-image.jpg" },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:site", content: "@dipakmandlik" },
+      { name: "twitter:image", content: "https://dmportfolio.qd.je/og-image.jpg" },
+      { name: "theme-color", content: "#1a56db" },
     ],
     links: [
       {
         rel: "stylesheet",
         href: appCss,
       },
+      { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
+      { rel: "icon", type: "image/png", sizes: "32x32", href: "/favicon-32.png" },
+      { rel: "apple-touch-icon", sizes: "180x180", href: "/apple-touch-icon.png" },
     ],
     scripts: [
       {
@@ -98,7 +106,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "@context": "https://schema.org",
           "@type": "WebSite",
           name: "Dipak Mandlik — Software Engineer",
-          url: "https://dipak-mandlik-portfolio.lovable.app",
+          url: "https://dmportfolio.qd.je",
         }),
       },
     ],

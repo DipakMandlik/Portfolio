@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://dipak-mandlik-portfolio.lovable.app/sitemap.xml
+Sitemap: https://dmportfolio.qd.je/sitemap.xml
