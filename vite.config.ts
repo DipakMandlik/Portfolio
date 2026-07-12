@@ -26,12 +26,10 @@ export default defineConfig({
         }
       : {}),
   },
-  ...(isGhPagesBuild
-    ? {
-        vite: { base: ghPagesBase },
-        // Plain static preset (not "github-pages"): that preset hardcodes a
-        // "/" + "/404.html" crawl list that 404s once basepath is non-root.
-        nitro: { preset: "static" },
-      }
-    : {}),
+  // Nitro's own `static`/`github-pages` presets conflict with Start's SSR build
+  // (rollupOptions.input resolves to an html file) and 404 their own basepath-blind
+  // crawl — so leave Nitro's preset untouched and rely solely on
+  // tanstackStart.prerender above for the static HTML; the CI workflow deploys
+  // just the prerendered `.output/public` directory and ignores the server bundle.
+  ...(isGhPagesBuild ? { vite: { base: ghPagesBase } } : {}),
 });
