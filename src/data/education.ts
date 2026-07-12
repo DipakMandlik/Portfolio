@@ -21,7 +21,7 @@ export const education: EducationMilestone[] = [
   {
     id: "tenth",
     kind: "mini",
-    dates: "2017",
+    dates: "2019",
     title: "10th Standard",
     institution: "H.S.Y. Vidyalaya, Nimon",
     achievementValue: 89.8,
@@ -35,7 +35,7 @@ export const education: EducationMilestone[] = [
   {
     id: "twelfth",
     kind: "mini",
-    dates: "2017 — 2019",
+    dates: "2019 — 2021",
     title: "Higher Secondary",
     subtitle: "Science (PCM)",
     institution: "H.S.Y. Junior College, Nimon",
@@ -50,7 +50,7 @@ export const education: EducationMilestone[] = [
   {
     id: "engineering",
     kind: "major",
-    dates: "2019 — 2023",
+    dates: "2021 — 2025",
     title: "Bachelor of Engineering",
     subtitle: "Information Technology",
     institution: "Amrutvahini College of Engineering",

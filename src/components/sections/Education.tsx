@@ -76,7 +76,7 @@ function TimelineNode({
   size?: "md" | "lg";
 }) {
   const reduce = useReducedMotion();
-  const dims = size === "lg" ? "size-28 lg:size-32" : "size-20";
+  const dims = size === "lg" ? "size-24 lg:size-28" : "size-20";
   return (
     <div className="relative shrink-0">
       <motion.div
@@ -141,18 +141,19 @@ function MiniMilestone({ m, delay }: { m: EducationMilestone; delay: number }) {
 
 function FloatingChips() {
   const reduce = useReducedMotion();
+  const visible = achievementChips.slice(0, 4);
   return (
-    <div aria-hidden className="mb-6 hidden flex-wrap gap-2 lg:flex">
-      {achievementChips.map((chip, i) => {
+    <div aria-hidden className="mb-4 hidden flex-wrap gap-1.5 lg:flex">
+      {visible.map((chip, i) => {
         const Icon = CHIP_ICONS[chip.icon];
         return (
           <motion.div
             key={chip.label}
-            animate={reduce ? undefined : { y: [0, -5, 0] }}
+            animate={reduce ? undefined : { y: [0, -4, 0] }}
             transition={{ duration: 4.5 + i * 0.4, repeat: Infinity, ease: "easeInOut", delay: i * 0.25 }}
           >
-            <div className="flex items-center gap-1.5 whitespace-nowrap rounded-full border border-blue/15 bg-blue/5 px-3 py-1.5 text-xs font-medium text-ink">
-              <Icon className="size-3.5 text-blue" />
+            <div className="flex items-center gap-1.5 whitespace-nowrap rounded-full border border-blue/15 bg-blue/5 px-2.5 py-1 text-[11px] font-medium text-ink">
+              <Icon className="size-3 text-blue" />
               {chip.label}
             </div>
           </motion.div>
@@ -169,26 +170,26 @@ function MajorMilestone({ m, delay }: { m: EducationMilestone; delay: number }) 
         <TimelineNode logo={m.logo} alt={m.institution} size="lg" />
       </div>
 
-      <div className="relative mt-4 rounded-2xl border border-line bg-white p-6 shadow-[0_24px_60px_-35px_rgba(26,86,219,0.35)] transition-shadow duration-300 hover:shadow-[0_28px_65px_-30px_rgba(26,86,219,0.42)] sm:rounded-3xl sm:p-10">
+      <div className="relative mt-4 rounded-2xl border border-line bg-white p-6 shadow-[0_20px_50px_-32px_rgba(26,86,219,0.3)] transition-shadow duration-300 hover:shadow-[0_24px_55px_-28px_rgba(26,86,219,0.4)] sm:p-7">
         <FloatingChips />
 
-        <div className="grid gap-8 lg:grid-cols-[1.5fr_1fr] lg:items-center">
+        <div className="grid gap-6 lg:grid-cols-[1.5fr_1fr] lg:items-center">
           <div>
             <p className="text-xs font-medium uppercase tracking-[0.16em] text-ink-soft">
               {m.dates}
             </p>
-            <h3 className="mt-2 font-display text-2xl text-ink sm:text-3xl">{m.title}</h3>
-            {m.subtitle && <p className="mt-1 text-base text-ink-soft">{m.subtitle}</p>}
-            <p className="mt-3 text-sm text-ink-soft">{m.institution}</p>
+            <h3 className="mt-2 font-display text-xl text-ink sm:text-2xl">{m.title}</h3>
+            {m.subtitle && <p className="mt-1 text-sm text-ink-soft">{m.subtitle}</p>}
+            <p className="mt-2 text-sm text-ink-soft">{m.institution}</p>
             {m.subInstitution && <p className="text-sm text-ink-soft">{m.subInstitution}</p>}
-            <p className="mt-4 max-w-xl text-sm leading-relaxed text-ink-soft">
+            <p className="mt-3 max-w-xl text-sm leading-relaxed text-ink-soft">
               {m.supportingText}
             </p>
-            <div className="mt-5 flex flex-wrap gap-2">
+            <div className="mt-4 flex flex-wrap gap-1.5">
               {m.badges.map((b) => (
                 <span
                   key={b}
-                  className="rounded-full border border-line bg-bg-porcelain px-3 py-1.5 text-xs font-medium text-ink-soft"
+                  className="rounded-full border border-line bg-bg-porcelain px-2.5 py-1 text-xs font-medium text-ink-soft"
                 >
                   {b}
                 </span>
@@ -196,18 +197,18 @@ function MajorMilestone({ m, delay }: { m: EducationMilestone; delay: number }) 
             </div>
           </div>
 
-          <div className="rounded-2xl border border-blue/15 bg-gradient-to-br from-blue/5 to-transparent p-6 text-center">
+          <div className="rounded-2xl border border-blue/15 bg-gradient-to-br from-blue/5 to-transparent p-5 text-center">
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-ink-soft">
               CGPA
             </p>
-            <p className="mt-2 font-display text-5xl text-blue">
+            <p className="mt-1.5 font-display text-4xl text-blue">
               <AnimatedNumber
                 value={m.achievementValue}
                 decimals={m.achievementDecimals}
                 suffix=""
               />
             </p>
-            <p className="mt-2 text-xs leading-relaxed text-ink-soft">{m.institution}</p>
+            <p className="mt-1.5 text-xs leading-relaxed text-ink-soft">{m.institution}</p>
           </div>
         </div>
       </div>
