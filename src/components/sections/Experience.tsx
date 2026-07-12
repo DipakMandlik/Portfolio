@@ -132,7 +132,14 @@ export function Experience() {
                   <h3 className="mt-2 font-display text-2xl text-ink sm:text-3xl">
                     {role.title}
                   </h3>
-                  <p className="mt-1 text-base text-ink-soft">
+                  <p className="mt-1 flex items-center gap-2 text-base text-ink-soft">
+                    {role.logo && (
+                      <img
+                        src={role.logo}
+                        alt={`${role.company} logo`}
+                        className="h-5 w-auto object-contain"
+                      />
+                    )}
                     {role.company}
                     {role.location ? ` · ${role.location}` : ""}
                   </p>
@@ -147,6 +154,19 @@ export function Experience() {
                       </li>
                     ))}
                   </ul>
+                  {role.award && (
+                    <div className="mt-5 inline-flex -rotate-1 items-center gap-3 rounded-xl border border-line bg-white p-2 shadow-[0_12px_30px_-20px_rgba(10,10,11,0.3)]">
+                      <img
+                        src={role.award.image}
+                        alt={role.award.caption}
+                        className="h-24 w-32 rounded-lg object-cover"
+                        loading="lazy"
+                      />
+                      <span className="max-w-[8rem] pr-2 text-xs text-ink-soft">
+                        {role.award.caption}
+                      </span>
+                    </div>
+                  )}
                 </Reveal>
               </div>
             ))}

@@ -1,9 +1,14 @@
+import superstarAward from "@/assets/superstar_training_award.png";
+import sumagoLogo from "@/assets/sumago.png";
+
 export type Role = {
   company: string;
   title: string;
   dates: string;
   location?: string;
   bullets: string[];
+  logo?: string;
+  award?: { image: string; caption: string };
 };
 
 export const experience: Role[] = [
@@ -48,6 +53,9 @@ export const experience: Role[] = [
     bullets: [
       "Built full-stack features across React, Node.js, Express, and MongoDB.",
       "Shipped frontend UI and REST APIs for internal web applications.",
+      'Recognized as "Superstar of the Training Program" for best performance in the internship.',
     ],
+    logo: sumagoLogo,
+    award: { image: superstarAward, caption: "Superstar of the Training Program" },
   },
 ];

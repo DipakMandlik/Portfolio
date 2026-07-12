@@ -1,7 +1,6 @@
 import { motion, useReducedMotion } from "framer-motion";
 import { ArrowRight, Download, Quote } from "lucide-react";
 import { profile } from "@/data/profile";
-import { heroStats } from "@/data/techStack";
 import portrait from "@/assets/portrait.jpg";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
@@ -172,23 +171,6 @@ export function Hero() {
           </motion.div>
         </div>
       </div>
-
-      <motion.div
-        initial={{ opacity: 0, y: 16 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-40px" }}
-        transition={{ duration: 0.8, ease: EASE }}
-        className="container-x relative mt-20 border-t border-line pt-8 sm:mt-24 lg:mt-40"
-      >
-        <dl className="grid grid-cols-2 gap-8 sm:grid-cols-4">
-          {heroStats.map((s) => (
-            <div key={s.label}>
-              <dt className="text-xs uppercase tracking-[0.14em] text-ink-soft">{s.label}</dt>
-              <dd className="mt-1 font-display text-xl text-ink sm:text-2xl">{s.value}</dd>
-            </div>
-          ))}
-        </dl>
-      </motion.div>
     </section>
   );
 }

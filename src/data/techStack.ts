@@ -23,10 +23,3 @@ export const techStack: TechStackItem[] = [
   { name: "Claude", icon: ClaudeLogo },
   { name: "OpenAI", icon: OpenAiLogo },
 ];
-
-export const heroStats = [
-  { value: "3+", label: "Years engineering experience" },
-  { value: "Founder", label: "AIByDM" },
-  { value: "Snowflake · DBT", label: "Data platform specialty" },
-  { value: "AI Automation", label: "Claude Code · Agents · GenAI" },
-];
