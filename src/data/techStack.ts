@@ -1,11 +1,28 @@
-export const techStack: string[] = [
-  "Snowflake",
-  "dbt",
-  "Python",
-  "Azure",
-  "AWS",
-  "Claude",
-  "OpenAI",
+import {
+  Snowflake,
+  Workflow,
+  Code2,
+  Cloud,
+  Server,
+  Sparkles,
+  Bot,
+  type LucideIcon,
+} from "lucide-react";
+
+export type TechStackItem = {
+  name: string;
+  icon: LucideIcon;
+  color: string;
+};
+
+export const techStack: TechStackItem[] = [
+  { name: "Snowflake", icon: Snowflake, color: "#29B5E8" },
+  { name: "dbt", icon: Workflow, color: "#FF694B" },
+  { name: "Python", icon: Code2, color: "#3776AB" },
+  { name: "Azure", icon: Cloud, color: "#0078D4" },
+  { name: "AWS", icon: Server, color: "#FF9900" },
+  { name: "Claude", icon: Sparkles, color: "#D97757" },
+  { name: "OpenAI", icon: Bot, color: "#10A37F" },
 ];
 
 export const heroStats = [
@@ -13,11 +30,4 @@ export const heroStats = [
   { value: "Founder", label: "AIByDM" },
   { value: "Snowflake · DBT", label: "Data platform specialty" },
   { value: "AI Automation", label: "Claude Code · Agents · GenAI" },
-];
-
-export const heroProofCards = [
-  { label: "Snowflake" },
-  { label: "Fraud Detection" },
-  { label: "AI Automation" },
-  { label: "Governance" },
 ];

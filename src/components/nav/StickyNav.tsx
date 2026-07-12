@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { ArrowUpRight } from "lucide-react";
 import { profile } from "@/data/profile";
 
 const links = [
@@ -42,20 +43,16 @@ export function StickyNav() {
   return (
     <header
       className={
-        "fixed inset-x-0 top-0 z-50 transition-colors duration-500 " +
-        (scrolled ? "frost" : "")
+        "fixed inset-x-0 top-0 z-50 transition-colors duration-500 " + (scrolled ? "frost" : "")
       }
     >
-      <nav
-        aria-label="Primary"
-        className="container-x flex h-16 items-center justify-between"
-      >
+      <nav aria-label="Primary" className="container-x flex h-16 items-center justify-between">
         <a
           href="#top"
           className="flex items-center gap-2 text-sm font-medium tracking-tight"
           aria-label={`${profile.name} — home`}
         >
-          <span className="grid h-8 w-8 place-items-center rounded-full border border-line text-[11px] font-semibold text-ink">
+          <span className="grid h-8 w-8 place-items-center rounded-full border-2 border-blue text-[11px] font-semibold text-ink">
             {profile.monogram}
           </span>
           <span className="hidden sm:inline text-ink-soft">{profile.name}</span>
@@ -70,9 +67,7 @@ export function StickyNav() {
                   href={l.href}
                   className={
                     "rounded-full px-3.5 py-1.5 text-sm transition-colors " +
-                    (isActive
-                      ? "text-ink"
-                      : "text-ink-soft hover:text-ink")
+                    (isActive ? "text-ink" : "text-ink-soft hover:text-ink")
                   }
                 >
                   {l.label}
@@ -84,9 +79,10 @@ export function StickyNav() {
 
         <a
           href="#contact"
-          className="hidden md:inline-flex items-center gap-1.5 rounded-full bg-ink px-4 py-1.5 text-sm font-medium text-white transition-colors hover:bg-blue"
+          className="hidden md:inline-flex items-center gap-1.5 rounded-full bg-blue px-4 py-1.5 text-sm font-medium text-white transition-colors hover:bg-blue-deep"
         >
-          Get in touch
+          Let's Connect
+          <ArrowUpRight className="size-4" />
         </a>
 
         <button
@@ -97,7 +93,12 @@ export function StickyNav() {
         >
           <span className="sr-only">Menu</span>
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden>
-            <path d="M2 5h12M2 11h12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+            <path
+              d="M2 5h12M2 11h12"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+            />
           </svg>
         </button>
       </nav>
@@ -120,9 +121,10 @@ export function StickyNav() {
               <a
                 onClick={() => setOpen(false)}
                 href="#contact"
-                className="mt-2 inline-flex w-full items-center justify-center rounded-full bg-ink px-4 py-2.5 text-sm font-medium text-white"
+                className="mt-2 inline-flex w-full items-center justify-center gap-1.5 rounded-full bg-blue px-4 py-2.5 text-sm font-medium text-white"
               >
-                Get in touch
+                Let's Connect
+                <ArrowUpRight className="size-4" />
               </a>
             </li>
           </ul>

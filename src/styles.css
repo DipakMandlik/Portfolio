@@ -4,6 +4,7 @@
 
 @import "@fontsource-variable/fraunces";
 @import "@fontsource-variable/inter";
+@import "@fontsource/caveat/600.css";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -28,6 +29,7 @@
 
   --font-display: "Fraunces Variable", ui-serif, Georgia, serif;
   --font-sans: "Inter Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-signature: "Caveat", cursive;
 }
 
 :root {

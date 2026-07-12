@@ -2,16 +2,11 @@ import { techStack } from "@/data/techStack";
 
 function MarqueeRow({ ariaHidden }: { ariaHidden?: boolean }) {
   return (
-    <div
-      className="flex shrink-0 items-center gap-10 pr-10"
-      aria-hidden={ariaHidden}
-    >
-      {techStack.map((name, i) => (
-        <span key={i} className="flex items-center gap-10 whitespace-nowrap">
-          <span className="font-display text-xl italic tracking-wide text-ink-soft sm:text-2xl">
-            {name}
-          </span>
-          <span className="size-1 rounded-full bg-line" aria-hidden />
+    <div className="flex shrink-0 items-center gap-12 pr-12" aria-hidden={ariaHidden}>
+      {techStack.map((tech, i) => (
+        <span key={i} className="flex items-center gap-2.5 whitespace-nowrap">
+          <tech.icon className="size-5 shrink-0" style={{ color: tech.color }} strokeWidth={1.75} />
+          <span className="text-lg font-medium text-ink-soft sm:text-xl">{tech.name}</span>
         </span>
       ))}
     </div>
@@ -20,10 +15,13 @@ function MarqueeRow({ ariaHidden }: { ariaHidden?: boolean }) {
 
 export function TrustedBy() {
   return (
-    <section aria-label="Technology stack" className="border-y border-line bg-bg-porcelain py-10 sm:py-12">
+    <section
+      aria-label="Technology stack"
+      className="border-y border-line bg-bg-porcelain py-10 sm:py-12"
+    >
       <div className="container-x">
         <p className="text-center text-xs uppercase tracking-[0.2em] text-ink-soft">
-          Works with the modern data &amp; AI stack
+          Trusted by modern data stack
         </p>
       </div>
 
