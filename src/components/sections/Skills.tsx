@@ -132,9 +132,9 @@ export function Skills() {
               intro="These are the tools I work with to design, build, automate and scale data platforms, AI solutions and modern applications."
             />
             <Reveal delay={0.15}>
-              <div className="mt-7 inline-flex items-start gap-2 rounded-2xl border border-line bg-bg-porcelain/70 px-4 py-2.5 text-sm text-ink-soft sm:rounded-full sm:items-center">
+              <div className="mt-7 flex max-w-full items-start gap-2 rounded-2xl border border-line bg-bg-porcelain/70 px-4 py-2.5 text-sm text-ink-soft sm:inline-flex sm:w-fit sm:items-center sm:rounded-full">
                 <Star className="mt-0.5 size-4 shrink-0 text-blue sm:mt-0" fill="currentColor" strokeWidth={0} />
-                <span>
+                <span className="min-w-0">
                   Always <span className="font-semibold text-ink">learning</span>. Always{" "}
                   <span className="font-semibold text-ink">building</span>. Always{" "}
                   <span className="font-semibold text-ink">shipping impact</span>.
