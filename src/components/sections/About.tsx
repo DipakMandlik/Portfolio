@@ -54,9 +54,9 @@ export function About() {
                   src={portrait}
                   alt={`Portrait of ${profile.name}`}
                   style={{ y }}
-                  width={1080}
-                  height={1080}
-                  className="h-[460px] w-full object-cover object-center grayscale-[8%] sm:h-[600px]"
+                  width={1024}
+                  height={1024}
+                  className="h-[460px] w-full object-cover object-center sm:h-[600px]"
                   loading="lazy"
                 />
                 <div
