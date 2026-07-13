@@ -9,10 +9,9 @@ import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 // Static export for GitHub Pages, opted into only by `npm run build:pages` (see package.json).
 // Left unset for the default `build`/`dev` scripts so Lovable's own Cloudflare pipeline is untouched —
 // per @lovable.dev/vite-tanstack-config, nitro/vite overrides here are ignored inside a Lovable build anyway.
-// Served from the custom domain (dmportfolio.qd.je) at the root, not under /dipak-mandlik-portfolio/,
-// so the base path is "/" — see public/CNAME.
+// Served from https://dipakmandlik.github.io/portfolio/, so assets need the /portfolio/ base path.
 const isGhPagesBuild = process.env.GH_PAGES_BUILD === "1";
-const ghPagesBase = "/";
+const ghPagesBase = "/portfolio/";
 
 export default defineConfig({
   tanstackStart: {
