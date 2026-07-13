@@ -36,7 +36,7 @@ jobs:
           PORT=3000 node .output/server/index.mjs &
           SERVER_PID=$!
           for i in $(seq 1 30); do
-            if curl -sf http://localhost:3000/ -o /tmp/index.html; then
+            if curl -sf http://localhost:3000/portfolio/ -o /tmp/index.html; then
               break
             fi
             sleep 1
