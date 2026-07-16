@@ -1,0 +1,61 @@
+<svg width="1280" height="896" viewBox="0 0 1280 896" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Limitless</title>
+  <desc id="desc">AI-powered global energy analytics platform built on Databricks</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1b3139" />
+      <stop offset="55%" stop-color="#0a0a0b" />
+      <stop offset="100%" stop-color="#050507" />
+    </linearGradient>
+    <radialGradient id="glow" cx="80%" cy="24%" r="55%">
+      <stop offset="0%" stop-color="#ff3621" stop-opacity="0.22" />
+      <stop offset="100%" stop-color="#ff3621" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="layerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ff3621" />
+      <stop offset="100%" stop-color="#ff8f6b" />
+    </linearGradient>
+  </defs>
+
+  <rect width="1280" height="896" fill="url(#bg)" />
+  <rect width="1280" height="896" fill="url(#glow)" />
+
+  <!-- medallion-architecture motif: stacked lakehouse layers -->
+  <g transform="translate(760,330)">
+    <rect x="0" y="0" width="420" height="46" rx="8" fill="url(#layerGrad)" opacity="0.95" />
+    <text x="20" y="30" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#1b3139" font-weight="600">DASHBOARDS</text>
+
+    <rect x="30" y="70" width="390" height="46" rx="8" fill="url(#layerGrad)" opacity="0.8" />
+    <text x="50" y="100" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#1b3139" font-weight="600">ML MODELS</text>
+
+    <rect x="60" y="140" width="360" height="46" rx="8" fill="url(#layerGrad)" opacity="0.65" />
+    <text x="80" y="170" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#1b3139" font-weight="600">FEATURES</text>
+
+    <rect x="90" y="210" width="330" height="46" rx="8" fill="url(#layerGrad)" opacity="0.5" />
+    <text x="110" y="240" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#1b3139" font-weight="600">CLEAN</text>
+
+    <rect x="120" y="280" width="300" height="46" rx="8" fill="url(#layerGrad)" opacity="0.35" />
+    <text x="140" y="310" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#f5f6f8" font-weight="600">RAW</text>
+  </g>
+
+  <text x="80" y="180" font-family="Georgia, 'Times New Roman', serif" font-size="60" fill="#f5f6f8" font-weight="600">
+    Limitless
+  </text>
+  <text x="80" y="222" font-family="Arial, Helvetica, sans-serif" font-size="22" fill="#ffb199" letter-spacing="0.04em">
+    AI ENERGY INTELLIGENCE · BUILT ON DATABRICKS
+  </text>
+
+  <g font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#ffe4dc">
+    <rect x="80" y="800" width="160" height="34" rx="17" fill="#ff3621" fill-opacity="0.16" />
+    <text x="103" y="822">200+ Countries</text>
+
+    <rect x="252" y="800" width="120" height="34" rx="17" fill="#ff3621" fill-opacity="0.16" />
+    <text x="275" y="822">Delta Lake</text>
+
+    <rect x="384" y="800" width="120" height="34" rx="17" fill="#ff3621" fill-opacity="0.16" />
+    <text x="407" y="822">PySpark</text>
+
+    <rect x="516" y="800" width="130" height="34" rx="17" fill="#ff3621" fill-opacity="0.16" />
+    <text x="539" y="822">$0 Free Tier</text>
+  </g>
+</svg>

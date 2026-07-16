@@ -1,6 +1,7 @@
 import projectFraudDetection from "@/assets/project-fraud-detection.svg";
 import projectAiByDm from "@/assets/project-aibydm.svg";
 import projectPiqlens from "@/assets/project-piqlens.svg";
+import projectLimitless from "@/assets/project-limitless.svg";
 
 export type Project = {
   title: string;
@@ -38,5 +39,14 @@ export const projects: Project[] = [
       "A Snowflake-native data quality, observability, and governance platform built at PibyThree. Profiling, rule-based quality checks, and incremental scans run as native Snowflake Tasks — with full RBAC, key-pair authentication, a live data catalog and lineage explorer, SLA/freshness monitoring, and PDF/Excel reporting. Every check, score, and audit trail lives and runs inside Snowflake itself.",
     stack: ["Snowflake", "Snowflake Tasks", "Next.js", "TypeScript", "Redis", "Docker"],
     image: projectPiqlens,
+  },
+  {
+    title: "Limitless",
+    role: "Solo project · 2025",
+    description:
+      "An AI-powered global energy analytics platform built entirely on Databricks Free Edition. Ingests OWID, renewable power plant, and World Bank data for 200+ countries through a five-layer Delta Lake pipeline — raw, clean, features, models, dashboards — then trains ML models to predict renewable growth and investment potential, and computes composite sustainability scores and tiers per country. $0 deployment cost.",
+    stack: ["Databricks", "PySpark", "Delta Lake", "scikit-learn", "Plotly"],
+    image: projectLimitless,
+    repo: "https://github.com/DipakMandlik/Limitless",
   },
 ];
