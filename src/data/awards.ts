@@ -1,5 +1,6 @@
 import snowflakeStreamlitAward from "@/assets/award-snowflake-streamlit-2025.jpg";
 import superstarTrainingAward from "@/assets/superstar_training_award.png";
+import pibythreeRockstarAward from "@/assets/award-pibythree-rockstar-2025.jpg";
 
 export type Award = {
   year: string;
@@ -17,6 +18,14 @@ export const awards: Award[] = [
     story:
       "At the Snowflake Data Build event in Pune, I represented PibyThree in the \"Streamlit Evening Bonanza\" coding challenge — 45 minutes to build a fully functional application from scratch. Using Snowflake Cortex and Streamlit, I built a Fully Managed Healthcare Dashboard: patient management, appointment tracking, an AI-based reporting tool, and real-time alerts. Presented it to the judges and took First Prize.",
     image: snowflakeStreamlitAward,
+  },
+  {
+    year: "2025",
+    title: "Rockstar Award — PibyThree",
+    detail: "Recognized for driving impactful PibyThree branding and market visibility",
+    story:
+      "Received PibyThree's Rockstar Award, presented by founder & CEO Darshan Wakchaure, for driving impactful company branding and effectively showcasing PibyThree's expertise in the market.",
+    image: pibythreeRockstarAward,
   },
   {
     year: "2024",
