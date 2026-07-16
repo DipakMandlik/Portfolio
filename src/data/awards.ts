@@ -3,6 +3,7 @@ import superstarTrainingAward from "@/assets/superstar_training_award.png";
 import pibythreeRockstarAward from "@/assets/award-pibythree-rockstar-2025.jpg";
 import databricksV4cKahoot from "@/assets/award-databricks-v4c-kahoot-2026.jpg";
 import amrutMeritoriousScholarship from "@/assets/award-amrut-meritorious-scholarship-2024.jpg";
+import tedxYouthAus from "@/assets/award-tedx-youth-aus-2024.jpg";
 
 export type Award = {
   year: string;
@@ -52,5 +53,13 @@ export const awards: Award[] = [
     story:
       "Achieved a 9.86 CGPA and was honored with the Amrut Meritorious Scholarship at Amrutvahini College of Engineering's Amrut Expo felicitation ceremony, including a cash prize of ₹6,000 — with the support of HOD Dr. Baisa Gunjal and Principal Mr. M.A. Venkatesh. Quality and determination over just the numbers.",
     image: amrutMeritoriousScholarship,
+  },
+  {
+    year: "2024",
+    title: "TEDx Youth@AUS Speaker",
+    detail: "Represented the IT department and Amrutvahini College of Engineering",
+    story:
+      "Represented the IT department and Amrutvahini College of Engineering at a TEDx Youth@AUS event organized by Ashoka Group of Schools — an opportunity made possible by the support of HOD Dr. Baisa Gunjal. Shared the stage with eight inspiring speakers, including Richa Shrivastava (Director, Maker's Asylum) and Priyanka Charan (actor, writer, producer, director), among others.",
+    image: tedxYouthAus,
   },
 ];
