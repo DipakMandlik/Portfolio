@@ -1,0 +1,69 @@
+<svg width="1280" height="896" viewBox="0 0 1280 896" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Observability Control Plane</title>
+  <desc id="desc">Multi-agent Claude Code system for Datadog observability on a Snowflake pipeline</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2d1642" />
+      <stop offset="55%" stop-color="#0a0a0b" />
+      <stop offset="100%" stop-color="#050507" />
+    </linearGradient>
+    <radialGradient id="glow" cx="80%" cy="22%" r="55%">
+      <stop offset="0%" stop-color="#632CA6" stop-opacity="0.35" />
+      <stop offset="100%" stop-color="#632CA6" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+
+  <rect width="1280" height="896" fill="url(#bg)" />
+  <rect width="1280" height="896" fill="url(#glow)" />
+
+  <!-- agent pipeline motif: orchestrator -> planner -> governance -> executor -> aggregator -->
+  <g transform="translate(760,300)" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#e6d9f2">
+    <g stroke="#9b6bc7" stroke-width="2" stroke-dasharray="4 4" opacity="0.7">
+      <line x1="60" y1="0" x2="60" y2="80" />
+      <line x1="60" y1="120" x2="60" y2="200" />
+      <line x1="60" y1="240" x2="60" y2="320" />
+      <line x1="60" y1="360" x2="60" y2="440" />
+    </g>
+    <g>
+      <rect x="0" y="0" width="360" height="46" rx="10" fill="#ffffff" fill-opacity="0.08" stroke="#9b6bc7" stroke-opacity="0.5" />
+      <circle cx="30" cy="23" r="8" fill="#632CA6" />
+      <text x="52" y="28">Orchestrator — classifies intent</text>
+    </g>
+    <g transform="translate(0,120)">
+      <rect x="0" y="0" width="360" height="46" rx="10" fill="#ffffff" fill-opacity="0.08" stroke="#9b6bc7" stroke-opacity="0.5" />
+      <circle cx="30" cy="23" r="8" fill="#632CA6" />
+      <text x="52" y="28">Planner — loads skill, builds plan</text>
+    </g>
+    <g transform="translate(0,240)">
+      <rect x="0" y="0" width="360" height="46" rx="10" fill="#ffffff" fill-opacity="0.08" stroke="#9b6bc7" stroke-opacity="0.5" />
+      <circle cx="30" cy="23" r="8" fill="#632CA6" />
+      <text x="52" y="28">Governance — naming, tags, dedup</text>
+    </g>
+    <g transform="translate(0,360)">
+      <rect x="0" y="0" width="360" height="46" rx="10" fill="#ffffff" fill-opacity="0.14" stroke="#9b6bc7" />
+      <circle cx="30" cy="23" r="8" fill="#a678d4" />
+      <text x="52" y="28" font-weight="600">Executor — only MCP write agent</text>
+    </g>
+  </g>
+
+  <text x="80" y="180" font-family="Georgia, 'Times New Roman', serif" font-size="48" fill="#f5f6f8" font-weight="600">
+    Observability Control Plane
+  </text>
+  <text x="80" y="222" font-family="Arial, Helvetica, sans-serif" font-size="21" fill="#c9a8e8" letter-spacing="0.03em">
+    MULTI-AGENT DATADOG AUTOMATION FOR SNOWFLAKE
+  </text>
+
+  <g font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#ecdcf9">
+    <rect x="80" y="800" width="120" height="34" rx="17" fill="#632CA6" fill-opacity="0.22" />
+    <text x="103" y="822">13 Agents</text>
+
+    <rect x="212" y="800" width="120" height="34" rx="17" fill="#632CA6" fill-opacity="0.22" />
+    <text x="235" y="822">Datadog</text>
+
+    <rect x="344" y="800" width="150" height="34" rx="17" fill="#632CA6" fill-opacity="0.22" />
+    <text x="367" y="822">Claude Code</text>
+
+    <rect x="506" y="800" width="130" height="34" rx="17" fill="#632CA6" fill-opacity="0.22" />
+    <text x="529" y="822">Snowflake</text>
+  </g>
+</svg>

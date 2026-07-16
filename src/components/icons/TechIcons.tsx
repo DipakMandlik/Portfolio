@@ -404,3 +404,109 @@ export function DatadogLogo({ className }: IconProps) {
     </svg>
   );
 }
+
+export function TypeScriptLogo({ className }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} aria-hidden>
+      <rect x="2" y="2" width="20" height="20" rx="3" fill="#3178C6" />
+      <path
+        d="M9.8 12.4H7v-1.5h7.4v1.5h-2.8v7.6H9.8Z"
+        fill="#fff"
+      />
+      <path
+        d="M14.2 17.5c.4.5.9.9 1.7.9.7 0 1.1-.4 1.1-.9s-.4-.8-1.1-1l-.4-.2c-1.1-.5-1.9-1.1-1.9-2.4 0-1.2.9-2.1 2.3-2.1 1 0 1.7.3 2.2 1.2l-1.2.8c-.3-.5-.6-.6-1-.6-.4 0-.7.3-.7.6 0 .4.3.6.9.9l.4.2c1.3.6 2.1 1.2 2.1 2.5 0 1.4-1.1 2.2-2.6 2.2-1.5 0-2.4-.7-2.9-1.6Z"
+        fill="#fff"
+      />
+    </svg>
+  );
+}
+
+export function FastApiLogo({ className }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} fill="none" aria-hidden>
+      <circle cx="12" cy="12" r="10" fill="#009688" />
+      <path d="M13 3.5 6.5 13H11l-1.5 7.2L17.5 10H13Z" fill="#fff" />
+    </svg>
+  );
+}
+
+export function PostgreSqlLogo({ className }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} fill="none" aria-hidden>
+      <path
+        d="M12 3c-4.4 0-7 2.7-7 7.4 0 4 2 7.4 4.4 9.2.5.4 1.1.1 1.1-.5v-3.3c-2-.5-2.7-1.9-2.7-3.4h1.4c0 1.4.9 2.3 3 2.3 1.8 0 2.9-.7 2.9-1.8 0-1-.7-1.4-2.6-1.9l-1-.2c-2.3-.6-3.5-1.7-3.5-3.5 0-2 1.6-3.4 4.2-3.4 2.7 0 4.3 1.4 4.4 3.6h-1.4c-.1-1.3-1.1-2.1-3-2.1-1.7 0-2.7.7-2.7 1.8 0 .9.6 1.3 2.4 1.8l1 .2c2.5.6 3.7 1.7 3.7 3.6 0 2.1-1.7 3.5-4.5 3.6v3.3c3.4-1.1 6.9-4.7 6.9-9.4 0-4.7-2.6-7.4-7-7.4Z"
+        fill="#336791"
+      />
+    </svg>
+  );
+}
+
+export function RedisLogo({ className }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} fill="none" aria-hidden>
+      <g fill="#DC382D">
+        <path d="M12 3 20 6.5 12 10 4 6.5Z" />
+        <path d="M4 11 12 14.5 20 11v2.2L12 16.7 4 13.2Z" />
+        <path d="M4 16 12 19.5 20 16v2.2L12 21.7 4 18.2Z" />
+      </g>
+    </svg>
+  );
+}
+
+export function NextJsLogo({ className }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} aria-hidden>
+      <circle cx="12" cy="12" r="10.5" fill="#111318" />
+      <path d="M9 8v8l1.6.9V9.9L15.5 17H17V8h-1.6v6.4L10.7 8Z" fill="#fff" />
+    </svg>
+  );
+}
+
+export function ScikitLearnLogo({ className }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} fill="none" aria-hidden>
+      <path
+        d="M9 3c2.8 0 4.5 2 4.5 4.6 0 1.7-.8 2.9-1.6 4 1 1.1 1.6 2.4 1.6 4 0 2.6-1.7 4.6-4.5 4.6-1.6 0-2.9-.7-3.7-1.8l1.4-1.1c.5.7 1.3 1.1 2.3 1.1 1.6 0 2.6-1.2 2.6-2.8 0-1.1-.5-2-1.3-2.7-.8.7-1.8 1.2-3 1.2v-1.8c1.1 0 2-.4 2.6-1.1-.8-.7-1.3-1.6-1.3-2.7 0-1.6 1-2.8 2.6-2.8"
+        fill="#F89939"
+      />
+      <circle cx="17" cy="12" r="3.4" fill="#29ABE2" />
+    </svg>
+  );
+}
+
+export function PlotlyLogo({ className }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} fill="none" aria-hidden>
+      <g stroke="#119DFF" strokeWidth="1.8" strokeLinecap="round">
+        <line x1="5" y1="19" x2="5" y2="13" />
+        <line x1="9.5" y1="19" x2="9.5" y2="8" />
+        <line x1="14" y1="19" x2="14" y2="11" />
+        <line x1="18.5" y1="19" x2="18.5" y2="5" />
+      </g>
+      <circle cx="18.5" cy="5" r="1.6" fill="#3F4F75" />
+    </svg>
+  );
+}
+
+export function SupabaseLogo({ className }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} fill="none" aria-hidden>
+      <path d="M13 2 5 14h6l-1 8 9-13h-6Z" fill="#3ECF8E" />
+    </svg>
+  );
+}
+
+export function TailwindCssLogo({ className }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} fill="none" aria-hidden>
+      <path
+        d="M6 12.5c.7-2.8 2.4-4.2 5-4.2 3.9 0 4.4 2.8 6 3.2-.7 2.8-2.4 4.2-5 4.2-3.9 0-4.4-2.8-6-3.2Z"
+        fill="#38BDF8"
+      />
+      <path
+        d="M1 16.5c.7-2.8 2.4-4.2 5-4.2 3.9 0 4.4 2.8 6 3.2-.7 2.8-2.4 4.2-5 4.2-3.9 0-4.4-2.8-6-3.2Z"
+        fill="#38BDF8"
+      />
+    </svg>
+  );
+}

@@ -55,10 +55,11 @@ function ProjectBlock({ p, i }: { p: Project; i: number }) {
         <div className="mt-5 flex flex-wrap gap-1.5">
           {p.stack.map((s) => (
             <span
-              key={s}
-              className="rounded-full border border-line px-2.5 py-1 text-xs text-ink-soft"
+              key={s.name}
+              className="inline-flex items-center gap-1.5 rounded-full border border-line px-2.5 py-1 text-xs text-ink-soft"
             >
-              {s}
+              {s.icon && <s.icon className="size-3.5 shrink-0" />}
+              {s.name}
             </span>
           ))}
         </div>
