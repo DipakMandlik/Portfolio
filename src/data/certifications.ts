@@ -21,6 +21,7 @@ import aiFluencyFramework from "@/assets/certifications/ai-fluency-framework-fou
 import claudeWithAnthropicApi from "@/assets/certifications/claude-with-the-anthropic-api.png";
 import introToAgentSkills from "@/assets/certifications/introduction-to-agent-skills.png";
 import introToMcp from "@/assets/certifications/introduction-to-model-context-protocol.png";
+import claudeCode101 from "@/assets/certifications/claude-code-101.svg";
 
 export type CertCategory = "AI" | "Cloud" | "Data Engineering" | "Observability";
 
@@ -190,6 +191,16 @@ export const certifications: Certification[] = [
     category: "AI",
     description: "Connecting AI models to tools and data with MCP.",
     image: introToMcp,
+    verifyUrl: null,
+  },
+  {
+    id: "claude-code-101",
+    title: "Claude Code 101",
+    issuer: "Anthropic",
+    issuerLogo: ClaudeLogo,
+    category: "AI",
+    description: "Foundations of working with Claude Code.",
+    image: claudeCode101,
     verifyUrl: null,
   },
 ];

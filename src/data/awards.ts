@@ -1,6 +1,8 @@
 import snowflakeStreamlitAward from "@/assets/award-snowflake-streamlit-2025.jpg";
 import superstarTrainingAward from "@/assets/superstar_training_award.png";
 import pibythreeRockstarAward from "@/assets/award-pibythree-rockstar-2025.jpg";
+import databricksV4cKahoot from "@/assets/award-databricks-v4c-kahoot-2026.jpg";
+import amrutMeritoriousScholarship from "@/assets/award-amrut-meritorious-scholarship-2024.jpg";
 
 export type Award = {
   year: string;
@@ -11,6 +13,14 @@ export type Award = {
 };
 
 export const awards: Award[] = [
+  {
+    year: "2026",
+    title: "2nd Place — Kahoot Quiz, Databricks x V4C.ai Meetup",
+    detail: "\"Lakehouse Lagers and Legends\" meetup, Mumbai",
+    story:
+      "On the fun side, I placed 2nd in the Kahoot quiz at \"Lakehouse Lagers and Legends,\" a meetup hosted by Databricks x V4C.ai in Mumbai — picked up some cool goodies along the way. Competitive learning always hits different, and it left me excited to go deeper into Databricks' AI stack: vector search, LLM tooling, governance, and unified compute for data and ML workloads.",
+    image: databricksV4cKahoot,
+  },
   {
     year: "2025",
     title: "1st Place — Snowflake Streamlit Coding Challenge",
@@ -34,5 +44,13 @@ export const awards: Award[] = [
     story:
       "During my MERN Stack internship at Sumago Infotech in Nashik, I was recognized as \"Superstar of the Training Program\" for the best performance across the training batch — building full-stack features and REST APIs across React, Node.js, Express, and MongoDB.",
     image: superstarTrainingAward,
+  },
+  {
+    year: "2024",
+    title: "Amrut Meritorious Scholarship",
+    detail: "9.86 CGPA, awarded at Amrutvahini College of Engineering's Amrut Expo felicitation",
+    story:
+      "Achieved a 9.86 CGPA and was honored with the Amrut Meritorious Scholarship at Amrutvahini College of Engineering's Amrut Expo felicitation ceremony, including a cash prize of ₹6,000 — with the support of HOD Dr. Baisa Gunjal and Principal Mr. M.A. Venkatesh. Quality and determination over just the numbers.",
+    image: amrutMeritoriousScholarship,
   },
 ];
