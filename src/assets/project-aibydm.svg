@@ -1,0 +1,53 @@
+<svg width="1280" height="896" viewBox="0 0 1280 896" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">AIByDM</title>
+  <desc id="desc">Community and learning platform for practical, applied AI</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1a56db" />
+      <stop offset="55%" stop-color="#0b2a6b" />
+      <stop offset="100%" stop-color="#050914" />
+    </linearGradient>
+    <radialGradient id="glow" cx="22%" cy="20%" r="60%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.16" />
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+
+  <rect width="1280" height="896" fill="url(#bg)" />
+  <rect width="1280" height="896" fill="url(#glow)" />
+
+  <!-- large hub-and-spoke motif (same shape language as the on-site AIByDM badge) -->
+  <g transform="translate(900,430)" opacity="0.9">
+    <g stroke="#ffffff" stroke-width="1.6" opacity="0.45">
+      <path d="M0 0 L-190 -190" />
+      <path d="M0 0 L190 -190" />
+      <path d="M0 0 L-190 190" />
+      <path d="M0 0 L190 190" />
+    </g>
+    <circle cx="0" cy="0" r="30" fill="#ffffff" />
+    <circle cx="-190" cy="-190" r="16" fill="#ffffff" opacity="0.9" />
+    <circle cx="190" cy="-190" r="16" fill="#ffffff" opacity="0.9" />
+    <circle cx="-190" cy="190" r="16" fill="#ffffff" opacity="0.9" />
+    <circle cx="190" cy="190" r="16" fill="#ffffff" opacity="0.9" />
+    <circle cx="0" cy="0" r="70" fill="none" stroke="#ffffff" stroke-opacity="0.25" stroke-width="1.5" />
+    <circle cx="0" cy="0" r="120" fill="none" stroke="#ffffff" stroke-opacity="0.15" stroke-width="1" />
+  </g>
+
+  <text x="80" y="180" font-family="Georgia, 'Times New Roman', serif" font-size="64" fill="#ffffff" font-weight="600">
+    AIByDM
+  </text>
+  <text x="80" y="222" font-family="Arial, Helvetica, sans-serif" font-size="22" fill="#dbe4ff" letter-spacing="0.04em">
+    Community for Builders, Learners &amp; Doers
+  </text>
+
+  <g font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#eef2ff">
+    <rect x="80" y="800" width="150" height="34" rx="17" fill="#ffffff" fill-opacity="0.12" />
+    <text x="103" y="822">1,300+ Members</text>
+
+    <rect x="242" y="800" width="118" height="34" rx="17" fill="#ffffff" fill-opacity="0.12" />
+    <text x="265" y="822">Global Reach</text>
+
+    <rect x="372" y="800" width="130" height="34" rx="17" fill="#ffffff" fill-opacity="0.12" />
+    <text x="395" y="822">AI Education</text>
+  </g>
+</svg>

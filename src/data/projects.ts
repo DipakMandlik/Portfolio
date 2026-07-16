@@ -1,4 +1,5 @@
 import projectFraudDetection from "@/assets/project-fraud-detection.svg";
+import projectAiByDm from "@/assets/project-aibydm.svg";
 
 export type Project = {
   title: string;
@@ -19,5 +20,14 @@ export const projects: Project[] = [
     stack: ["React", "TypeScript", "FastAPI", "PostgreSQL", "Redis", "WebSockets"],
     image: projectFraudDetection,
     live: "https://dipakmandlik.github.io/Fraud-transaction-",
+  },
+  {
+    title: "AIByDM",
+    role: "Founder · 2022",
+    description:
+      "A community and learning platform for practical, applied AI — started in my third year of engineering to help builders and learners learn, build, and ship real AI projects. Grown to 1,300+ members worldwide, with educational content, GenAI applications, and open-source initiatives around AI agents and workflow automation.",
+    stack: ["Community", "AI Education", "Content", "Open Source"],
+    image: projectAiByDm,
+    live: "https://dipakmandlik.github.io/AIByDM/",
   },
 ];
