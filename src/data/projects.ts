@@ -25,6 +25,7 @@ import projectPiqlens from "@/assets/project-piqlens.svg";
 import projectLimitless from "@/assets/project-limitless.svg";
 import projectBillingSystem from "@/assets/project-billing-system.svg";
 import projectDatadog from "@/assets/project-datadog-observability.svg";
+import projectSkillsPlatform from "@/assets/project-skills-platform.svg";
 
 export type StackIcon = (props: { className?: string }) => ReactElement;
 
@@ -60,6 +61,22 @@ export const projects: Project[] = [
       { name: "Docker", icon: DockerLogo },
     ],
     image: projectPiqlens,
+  },
+  {
+    title: "Skills Platform",
+    role: "Solo project · 2026",
+    description:
+      "A production-ready AI governance platform authenticated natively against Snowflake — login runs through Snowflake's own REST API, with roles mapped straight from Snowflake (ACCOUNTADMIN, SYSADMIN, SECURITYADMIN) into a hybrid RBAC + user-level access model. An MCP bridge governs secure AI model execution, with a skills catalog for inspecting, testing, and assigning AI skills per user, backed by full audit logging and a dedicated security-attack and RBAC-route-guard test suite.",
+    stack: [
+      { name: "Snowflake", icon: SnowflakeLogo },
+      { name: "FastAPI", icon: FastApiLogo },
+      { name: "React", icon: ReactLogo },
+      { name: "PostgreSQL", icon: PostgreSqlLogo },
+      { name: "Redis", icon: RedisLogo },
+      { name: "MCP" },
+    ],
+    image: projectSkillsPlatform,
+    repo: "https://github.com/DipakMandlik/pi-skills-platform",
   },
   {
     title: "Limitless",

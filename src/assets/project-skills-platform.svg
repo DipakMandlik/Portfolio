@@ -1,0 +1,52 @@
+<svg width="1280" height="896" viewBox="0 0 1280 896" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Skills Platform</title>
+  <desc id="desc">Snowflake-native AI governance and skills catalog platform</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b2733" />
+      <stop offset="55%" stop-color="#0a0a0b" />
+      <stop offset="100%" stop-color="#050507" />
+    </linearGradient>
+    <radialGradient id="glow" cx="80%" cy="22%" r="55%">
+      <stop offset="0%" stop-color="#29b5e8" stop-opacity="0.28" />
+      <stop offset="100%" stop-color="#29b5e8" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+
+  <rect width="1280" height="896" fill="url(#bg)" />
+  <rect width="1280" height="896" fill="url(#glow)" />
+
+  <!-- shield motif (governance) with a grid of skill badges inside -->
+  <g transform="translate(950,470)">
+    <path d="M0 -190 150 -140 V20 C150 110 80 175 0 200 C-80 175 -150 110 -150 20 V-140 Z"
+      fill="#ffffff" fill-opacity="0.05" stroke="#29b5e8" stroke-opacity="0.5" stroke-width="2" />
+    <g fill="#29b5e8">
+      <rect x="-95" y="-90" width="70" height="70" rx="10" opacity="0.85" />
+      <rect x="-15" y="-90" width="70" height="70" rx="10" opacity="0.65" />
+      <rect x="-95" y="-10" width="70" height="70" rx="10" opacity="0.65" />
+      <rect x="-15" y="-10" width="70" height="70" rx="10" opacity="0.9" />
+    </g>
+    <path d="M-40 55 -12 83 42 25" stroke="#ffffff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.9" />
+  </g>
+
+  <text x="80" y="180" font-family="Georgia, 'Times New Roman', serif" font-size="58" fill="#f5f6f8" font-weight="600">
+    Skills Platform
+  </text>
+  <text x="80" y="222" font-family="Arial, Helvetica, sans-serif" font-size="21" fill="#9fd6ef" letter-spacing="0.03em">
+    SNOWFLAKE-NATIVE AI GOVERNANCE &amp; SKILLS CATALOG
+  </text>
+
+  <g font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#d7ecf5">
+    <rect x="80" y="800" width="150" height="34" rx="17" fill="#29b5e8" fill-opacity="0.16" />
+    <text x="103" y="822">Snowflake Auth</text>
+
+    <rect x="242" y="800" width="100" height="34" rx="17" fill="#29b5e8" fill-opacity="0.16" />
+    <text x="265" y="822">RBAC</text>
+
+    <rect x="354" y="800" width="150" height="34" rx="17" fill="#29b5e8" fill-opacity="0.16" />
+    <text x="377" y="822">Governance</text>
+
+    <rect x="516" y="800" width="100" height="34" rx="17" fill="#29b5e8" fill-opacity="0.16" />
+    <text x="539" y="822">MCP</text>
+  </g>
+</svg>
