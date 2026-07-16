@@ -2,6 +2,7 @@ import projectFraudDetection from "@/assets/project-fraud-detection.svg";
 import projectAiByDm from "@/assets/project-aibydm.svg";
 import projectPiqlens from "@/assets/project-piqlens.svg";
 import projectLimitless from "@/assets/project-limitless.svg";
+import projectBillingSystem from "@/assets/project-billing-system.svg";
 
 export type Project = {
   title: string;
@@ -48,5 +49,13 @@ export const projects: Project[] = [
     stack: ["Databricks", "PySpark", "Delta Lake", "scikit-learn", "Plotly"],
     image: projectLimitless,
     repo: "https://github.com/DipakMandlik/Limitless",
+  },
+  {
+    title: "Cloth Store Billing System",
+    role: "Full-stack developer · 2025",
+    description:
+      "A real-world POS and billing system built for Dipak Cloth Stores, a family retail business — with a fully Marathi-localized UI. Role-based access (admin/operator) is enforced with Supabase Auth and Postgres row-level security, alongside live cart and discount calculation, printable itemized receipts, and one-tap WhatsApp bill sharing. A sales dashboard tracks daily totals by payment type (cash/online/credit) and product performance.",
+    stack: ["React", "TypeScript", "Supabase", "PostgreSQL", "Tailwind CSS"],
+    image: projectBillingSystem,
   },
 ];
