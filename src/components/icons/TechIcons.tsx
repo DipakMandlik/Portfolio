@@ -374,6 +374,23 @@ export function DeltaLakeLogo({ className }: IconProps) {
   );
 }
 
+export function CopilotLogo({ className }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} fill="none" aria-hidden>
+      <path
+        d="M8.2 5.5c-2.2 0-3.7 1.8-3.7 4v3.4c0 .9-.4 1.3-1 1.6.6.3 1 .7 1 1.6v1c0 1.4 1 2.4 2.4 2.4h.6v-3.2c0-1 .5-1.5 1.4-1.7-.9-.2-1.4-.7-1.4-1.7V9.5c0-1.3.8-2.2 2-2.4V5.5Z"
+        fill="#111318"
+      />
+      <path
+        d="M15.8 5.5c2.2 0 3.7 1.8 3.7 4v3.4c0 .9.4 1.3 1 1.6-.6.3-1 .7-1 1.6v1c0 1.4-1 2.4-2.4 2.4h-.6v-3.2c0-1-.5-1.5-1.4-1.7.9-.2 1.4-.7 1.4-1.7V9.5c0-1.3-.8-2.2-2-2.4V5.5Z"
+        fill="#111318"
+      />
+      <circle cx="9" cy="12.3" r="1.3" fill="#8C8C8C" />
+      <circle cx="15" cy="12.3" r="1.3" fill="#8C8C8C" />
+    </svg>
+  );
+}
+
 export function DatadogLogo({ className }: IconProps) {
   return (
     <svg viewBox="0 0 24 24" className={className} fill="none" aria-hidden>

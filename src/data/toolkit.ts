@@ -27,6 +27,7 @@ import {
   SparkLogo,
   ApacheIcebergLogo,
   DeltaLakeLogo,
+  CopilotLogo,
 } from "@/components/icons/TechIcons";
 
 export type ToolIcon = (props: { className?: string }) => ReactElement;
@@ -84,8 +85,9 @@ export const toolkitCategories: ToolkitCategory[] = [
     iconColor: "text-violet-600",
     badgeBg: "bg-violet-500/10 text-violet-600",
     topTools: [
-      { name: "OpenAI", icon: OpenAiLogo },
       { name: "Claude", icon: ClaudeLogo },
+      { name: "OpenAI", icon: OpenAiLogo },
+      { name: "GitHub Copilot", icon: CopilotLogo },
       { name: "LangChain", icon: LangChainLogo },
       { name: "Cursor", icon: CursorLogo },
       { name: "n8n", icon: N8nLogo },
@@ -155,6 +157,7 @@ export const toolkitMarquee: { name: string; icon: ToolIcon }[] = [
   { name: "Google Cloud", icon: GoogleCloudLogo },
   { name: "OpenAI", icon: OpenAiLogo },
   { name: "Claude", icon: ClaudeLogo },
+  { name: "GitHub Copilot", icon: CopilotLogo },
   { name: "LangChain", icon: LangChainLogo },
   { name: "Kubernetes", icon: KubernetesLogo },
   { name: "GitHub", icon: GitHubLogo },
