@@ -1,5 +1,6 @@
 import projectFraudDetection from "@/assets/project-fraud-detection.svg";
 import projectAiByDm from "@/assets/project-aibydm.svg";
+import projectPiqlens from "@/assets/project-piqlens.svg";
 
 export type Project = {
   title: string;
@@ -29,5 +30,13 @@ export const projects: Project[] = [
     stack: ["Community", "AI Education", "Content", "Open Source"],
     image: projectAiByDm,
     live: "https://dipakmandlik.github.io/AIByDM/",
+  },
+  {
+    title: "PiQLens",
+    role: "Product engineer · PibyThree accelerator · 2026",
+    description:
+      "A Snowflake-native data quality, observability, and governance platform built at PibyThree. Profiling, rule-based quality checks, and incremental scans run as native Snowflake Tasks — with full RBAC, key-pair authentication, a live data catalog and lineage explorer, SLA/freshness monitoring, and PDF/Excel reporting. Every check, score, and audit trail lives and runs inside Snowflake itself.",
+    stack: ["Snowflake", "Snowflake Tasks", "Next.js", "TypeScript", "Redis", "Docker"],
+    image: projectPiqlens,
   },
 ];

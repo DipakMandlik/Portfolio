@@ -1,0 +1,65 @@
+<svg width="1280" height="896" viewBox="0 0 1280 896" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">PiQLens</title>
+  <desc id="desc">Snowflake-native data quality, observability, and governance platform</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b2733" />
+      <stop offset="55%" stop-color="#0a0a0b" />
+      <stop offset="100%" stop-color="#050507" />
+    </linearGradient>
+    <radialGradient id="glow" cx="80%" cy="26%" r="55%">
+      <stop offset="0%" stop-color="#29b5e8" stop-opacity="0.30" />
+      <stop offset="100%" stop-color="#29b5e8" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+
+  <rect width="1280" height="896" fill="url(#bg)" />
+  <rect width="1280" height="896" fill="url(#glow)" />
+
+  <!-- large snowflake motif, same arm shape as the site's own Snowflake tech icon -->
+  <g transform="translate(950,470) scale(11)" opacity="0.9">
+    <g stroke="#29b5e8" stroke-width="1.1" stroke-linecap="round" opacity="0.8">
+      <line x1="0" y1="-9.5" x2="0" y2="9.5" />
+      <line x1="0" y1="-6" x2="-2.8" y2="-7.8" />
+      <line x1="0" y1="-6" x2="2.8" y2="-7.8" />
+      <line x1="0" y1="6" x2="-2.8" y2="7.8" />
+      <line x1="0" y1="6" x2="2.8" y2="7.8" />
+    </g>
+    <g stroke="#29b5e8" stroke-width="1.1" stroke-linecap="round" opacity="0.8" transform="rotate(60)">
+      <line x1="0" y1="-9.5" x2="0" y2="9.5" />
+      <line x1="0" y1="-6" x2="-2.8" y2="-7.8" />
+      <line x1="0" y1="-6" x2="2.8" y2="-7.8" />
+      <line x1="0" y1="6" x2="-2.8" y2="7.8" />
+      <line x1="0" y1="6" x2="2.8" y2="7.8" />
+    </g>
+    <g stroke="#29b5e8" stroke-width="1.1" stroke-linecap="round" opacity="0.8" transform="rotate(120)">
+      <line x1="0" y1="-9.5" x2="0" y2="9.5" />
+      <line x1="0" y1="-6" x2="-2.8" y2="-7.8" />
+      <line x1="0" y1="-6" x2="2.8" y2="-7.8" />
+      <line x1="0" y1="6" x2="-2.8" y2="7.8" />
+      <line x1="0" y1="6" x2="2.8" y2="7.8" />
+    </g>
+  </g>
+  <circle cx="950" cy="470" r="150" fill="none" stroke="#29b5e8" stroke-opacity="0.18" stroke-width="1" />
+
+  <text x="80" y="180" font-family="Georgia, 'Times New Roman', serif" font-size="60" fill="#f5f6f8" font-weight="600">
+    PiQLens
+  </text>
+  <text x="80" y="222" font-family="Arial, Helvetica, sans-serif" font-size="22" fill="#9fd6ef" letter-spacing="0.05em">
+    SNOWFLAKE-NATIVE DATA QUALITY &amp; OBSERVABILITY
+  </text>
+
+  <g font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#d7ecf5">
+    <rect x="80" y="800" width="140" height="34" rx="17" fill="#29b5e8" fill-opacity="0.14" />
+    <text x="103" y="822">Data Quality</text>
+
+    <rect x="232" y="800" width="150" height="34" rx="17" fill="#29b5e8" fill-opacity="0.14" />
+    <text x="255" y="822">Observability</text>
+
+    <rect x="394" y="800" width="130" height="34" rx="17" fill="#29b5e8" fill-opacity="0.14" />
+    <text x="417" y="822">Governance</text>
+
+    <rect x="536" y="800" width="170" height="34" rx="17" fill="#29b5e8" fill-opacity="0.14" />
+    <text x="559" y="822">Snowflake Tasks</text>
+  </g>
+</svg>
