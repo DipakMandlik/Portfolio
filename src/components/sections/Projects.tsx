@@ -97,8 +97,8 @@ export function Projects() {
       <div className="container-x">
         <SectionHeading
           eyebrow="Selected work"
-          title={<>A handful of things I'm proud to have shipped.</>}
-          intro="Each one started as a small question and ended as something real. Here is the short list."
+          title={<>The first thing I'm proud to have shipped.</>}
+          intro="It started as a hard problem and ended as something real — running live, with more on the way."
         />
 
         <div className="mt-20 space-y-28">
