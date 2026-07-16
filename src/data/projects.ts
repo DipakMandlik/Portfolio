@@ -18,6 +18,9 @@ import {
   PlotlyLogo,
   SupabaseLogo,
   TailwindCssLogo,
+  Html5Logo,
+  Css3Logo,
+  JavaScriptLogo,
 } from "@/components/icons/TechIcons";
 import projectFraudDetection from "@/assets/project-fraud-detection.svg";
 import projectAiByDm from "@/assets/project-aibydm.svg";
@@ -26,6 +29,7 @@ import projectLimitless from "@/assets/project-limitless.svg";
 import projectBillingSystem from "@/assets/project-billing-system.svg";
 import projectDatadog from "@/assets/project-datadog-observability.svg";
 import projectSkillsPlatform from "@/assets/project-skills-platform.svg";
+import projectSoilTesting from "@/assets/project-soil-testing.svg";
 
 export type StackIcon = (props: { className?: string }) => ReactElement;
 
@@ -151,5 +155,18 @@ export const projects: Project[] = [
       { name: "Tailwind CSS", icon: TailwindCssLogo },
     ],
     image: projectBillingSystem,
+  },
+  {
+    title: "Soil Testing Services",
+    role: "Engineering student project · 2023",
+    description:
+      "An early static website built during my engineering studies — a soil-testing services concept site with composition analysis, contaminant testing, and soil health assessment sections, plus a simple upload and contact form. One of my first hands-on web projects, long before Snowflake, Databricks, or agentic AI entered the picture.",
+    stack: [
+      { name: "HTML", icon: Html5Logo },
+      { name: "CSS", icon: Css3Logo },
+      { name: "JavaScript", icon: JavaScriptLogo },
+    ],
+    image: projectSoilTesting,
+    repo: "https://github.com/DipakMandlik/soiltesting.github.io",
   },
 ];

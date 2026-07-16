@@ -1,0 +1,52 @@
+<svg width="1280" height="896" viewBox="0 0 1280 896" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Soil Testing Services</title>
+  <desc id="desc">Static soil-testing services website built during engineering studies</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2b2416" />
+      <stop offset="55%" stop-color="#0a0a0b" />
+      <stop offset="100%" stop-color="#050507" />
+    </linearGradient>
+    <radialGradient id="glow" cx="80%" cy="24%" r="55%">
+      <stop offset="0%" stop-color="#7a9b57" stop-opacity="0.28" />
+      <stop offset="100%" stop-color="#7a9b57" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+
+  <rect width="1280" height="896" fill="url(#bg)" />
+  <rect width="1280" height="896" fill="url(#glow)" />
+
+  <!-- soil-strata motif: topsoil, subsoil, bedrock -->
+  <g transform="translate(800,300)">
+    <rect x="0" y="0" width="360" height="70" fill="#6b8f4e" opacity="0.85" />
+    <rect x="0" y="70" width="360" height="80" fill="#8a5a3a" opacity="0.85" />
+    <rect x="0" y="150" width="360" height="90" fill="#5c4632" opacity="0.85" />
+    <rect x="0" y="240" width="360" height="100" fill="#443a33" opacity="0.85" />
+    <g fill="#3f3a33">
+      <circle cx="60" cy="110" r="10" />
+      <circle cx="180" cy="95" r="7" />
+      <circle cx="280" cy="120" r="12" />
+      <circle cx="120" cy="190" r="9" />
+      <circle cx="260" cy="200" r="8" />
+    </g>
+    <rect x="-4" y="-4" width="368" height="348" fill="none" stroke="#d9e2c6" stroke-opacity="0.25" stroke-width="1.5" />
+  </g>
+
+  <text x="80" y="180" font-family="Georgia, 'Times New Roman', serif" font-size="50" fill="#f5f6f8" font-weight="600">
+    Soil Testing Services
+  </text>
+  <text x="80" y="222" font-family="Arial, Helvetica, sans-serif" font-size="20" fill="#c9d6b3" letter-spacing="0.03em">
+    ENGINEERING-DAYS WEB PROJECT
+  </text>
+
+  <g font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#e6ead9">
+    <rect x="80" y="800" width="100" height="34" rx="17" fill="#ffffff" fill-opacity="0.08" />
+    <text x="103" y="822">HTML</text>
+
+    <rect x="192" y="800" width="90" height="34" rx="17" fill="#ffffff" fill-opacity="0.08" />
+    <text x="215" y="822">CSS</text>
+
+    <rect x="294" y="800" width="140" height="34" rx="17" fill="#ffffff" fill-opacity="0.08" />
+    <text x="317" y="822">JavaScript</text>
+  </g>
+</svg>

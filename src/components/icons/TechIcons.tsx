@@ -510,3 +510,29 @@ export function TailwindCssLogo({ className }: IconProps) {
     </svg>
   );
 }
+
+export function Html5Logo({ className }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} fill="none" aria-hidden>
+      <path d="M4 3h16l-1.5 16.5L12 21l-6.5-1.5Z" fill="#E34F26" />
+      <path d="M12 4.3v15.4l5.3-1.5L18.4 4.3Z" fill="#F16529" />
+      <path
+        d="M8 8.3h8l-.2 2H8.3l.2 2h7.3l-.5 5.5-3.3 1-3.3-1-.2-2.3h2l.1 1 1.4.4 1.4-.4.2-2.2H8.6Z"
+        fill="#fff"
+      />
+    </svg>
+  );
+}
+
+export function Css3Logo({ className }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} fill="none" aria-hidden>
+      <path d="M4 3h16l-1.5 16.5L12 21l-6.5-1.5Z" fill="#1572B6" />
+      <path d="M12 4.3v15.4l5.3-1.5L18.4 4.3Z" fill="#33A9DC" />
+      <path
+        d="M8.2 8.3h7.8l-.2 2H10l.2 1.8h5.4l-.5 5.4-3.1 1-3.1-1-.2-2.2h1.9l.1.9 1.3.4 1.3-.4.2-2.1H8.7Z"
+        fill="#fff"
+      />
+    </svg>
+  );
+}
