@@ -1,4 +1,5 @@
 import snowflakeStreamlitAward from "@/assets/award-snowflake-streamlit-2025.jpg";
+import superstarTrainingAward from "@/assets/superstar_training_award.png";
 
 export type Award = {
   year: string;
@@ -16,5 +17,13 @@ export const awards: Award[] = [
     story:
       "At the Snowflake Data Build event in Pune, I represented PibyThree in the \"Streamlit Evening Bonanza\" coding challenge — 45 minutes to build a fully functional application from scratch. Using Snowflake Cortex and Streamlit, I built a Fully Managed Healthcare Dashboard: patient management, appointment tracking, an AI-based reporting tool, and real-time alerts. Presented it to the judges and took First Prize.",
     image: snowflakeStreamlitAward,
+  },
+  {
+    year: "2024",
+    title: "Superstar of the Training Program",
+    detail: "Best-performing intern, MERN Stack internship at Sumago Infotech",
+    story:
+      "During my MERN Stack internship at Sumago Infotech in Nashik, I was recognized as \"Superstar of the Training Program\" for the best performance across the training batch — building full-stack features and REST APIs across React, Node.js, Express, and MongoDB.",
+    image: superstarTrainingAward,
   },
 ];
