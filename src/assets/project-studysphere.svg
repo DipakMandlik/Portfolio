@@ -1,0 +1,58 @@
+<svg width="1280" height="896" viewBox="0 0 1280 896" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">StudySphere EduTech</title>
+  <desc id="desc">Multi-stream MERN learning platform with quizzes, certificates, and a ChatGPT assistant</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b2a6b" />
+      <stop offset="55%" stop-color="#0a0a0b" />
+      <stop offset="100%" stop-color="#050507" />
+    </linearGradient>
+    <radialGradient id="glow" cx="80%" cy="22%" r="55%">
+      <stop offset="0%" stop-color="#2f6bff" stop-opacity="0.28" />
+      <stop offset="100%" stop-color="#2f6bff" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+
+  <rect width="1280" height="896" fill="url(#bg)" />
+  <rect width="1280" height="896" fill="url(#glow)" />
+
+  <!-- graduation cap + stream badges -->
+  <g transform="translate(970,420)">
+    <path d="M0 -60 130 -10 0 40 -130 -10Z" fill="#ffffff" fill-opacity="0.9" />
+    <path d="M-70 5 -70 55 C-70 75 70 75 70 55 L70 5" fill="none" stroke="#2f6bff" stroke-width="4" />
+    <line x1="105" y1="4" x2="105" y2="70" stroke="#ffffff" stroke-opacity="0.8" stroke-width="3" />
+    <circle cx="105" cy="76" r="6" fill="#ffffff" fill-opacity="0.8" />
+  </g>
+
+  <g transform="translate(700,600)" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#dbe4ff">
+    <rect x="0" y="0" width="120" height="38" rx="19" fill="#ffffff" fill-opacity="0.08" />
+    <text x="22" y="24">Medical</text>
+    <rect x="132" y="0" width="150" height="38" rx="19" fill="#ffffff" fill-opacity="0.08" />
+    <text x="154" y="24">Engineering</text>
+    <rect x="0" y="50" width="180" height="38" rx="19" fill="#ffffff" fill-opacity="0.08" />
+    <text x="22" y="74">Computer Science</text>
+    <rect x="192" y="50" width="150" height="38" rx="19" fill="#ffffff" fill-opacity="0.08" />
+    <text x="214" y="74">Agriculture</text>
+  </g>
+
+  <text x="80" y="180" font-family="Georgia, 'Times New Roman', serif" font-size="52" fill="#f5f6f8" font-weight="600">
+    StudySphere EduTech
+  </text>
+  <text x="80" y="222" font-family="Arial, Helvetica, sans-serif" font-size="21" fill="#9aa7c7" letter-spacing="0.03em">
+    MULTI-STREAM LEARNING · QUIZZES · CERTIFICATES
+  </text>
+
+  <g font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#c7d0ea">
+    <rect x="80" y="800" width="110" height="34" rx="17" fill="#ffffff" fill-opacity="0.08" />
+    <text x="103" y="822">MERN</text>
+
+    <rect x="202" y="800" width="120" height="34" rx="17" fill="#ffffff" fill-opacity="0.08" />
+    <text x="225" y="822">Quizzes</text>
+
+    <rect x="334" y="800" width="150" height="34" rx="17" fill="#ffffff" fill-opacity="0.08" />
+    <text x="357" y="822">Certificates</text>
+
+    <rect x="496" y="800" width="180" height="34" rx="17" fill="#ffffff" fill-opacity="0.08" />
+    <text x="519" y="822">ChatGPT Assistant</text>
+  </g>
+</svg>

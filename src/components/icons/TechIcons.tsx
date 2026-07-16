@@ -536,3 +536,55 @@ export function Css3Logo({ className }: IconProps) {
     </svg>
   );
 }
+
+export function FlaskLogo({ className }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} fill="none" aria-hidden>
+      <path
+        d="M10 3h4v5.2l4.3 8.1c.6 1.1-.2 2.4-1.5 2.4H7.2c-1.3 0-2.1-1.3-1.5-2.4L10 8.2Z"
+        stroke="#111318"
+        strokeWidth="1.5"
+        fill="none"
+      />
+      <path d="M8.2 14.5h7.6l1.8 3.4c.4.7-.1 1.6-1 1.6H7.4c-.9 0-1.4-.9-1-1.6Z" fill="#111318" />
+    </svg>
+  );
+}
+
+export function OpenCvLogo({ className }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} fill="none" aria-hidden>
+      <circle cx="12" cy="5.5" r="3" fill="#5C3EE8" />
+      <circle cx="6" cy="16" r="3" fill="#00A651" />
+      <circle cx="18" cy="16" r="3" fill="#EE4C2C" />
+    </svg>
+  );
+}
+
+export function ExpressLogo({ className }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} aria-hidden>
+      <rect x="2" y="2" width="20" height="20" rx="4" fill="#111318" />
+      <path
+        d="M5.5 16 8.8 12 5.7 8.2h1.8l2.2 2.8 2.2-2.8h1.8L10.6 12l3.3 4h-1.8l-2.3-2.9L7.4 16Z"
+        fill="#fff"
+      />
+      <path
+        d="M14.5 12.5c0-1.9 1.1-3.2 2.9-3.2 1.8 0 2.7 1.3 2.7 3.1v.5h-4c.1 1 .7 1.6 1.7 1.6.7 0 1.2-.3 1.5-.8l1 .6c-.5.8-1.4 1.3-2.5 1.3-1.8 0-3.3-1.2-3.3-3.1Zm1.6-.6h2.5c-.1-.8-.6-1.3-1.2-1.3-.7 0-1.2.5-1.3 1.3Z"
+        fill="#fff"
+      />
+    </svg>
+  );
+}
+
+export function MongoDbLogo({ className }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} fill="none" aria-hidden>
+      <path
+        d="M12 2c2.5 3 4 6.4 4 10 0 3.7-1.7 6.8-4 8.5-2.3-1.7-4-4.8-4-8.5 0-3.6 1.5-7 4-10Z"
+        fill="#47A248"
+      />
+      <path d="M12 15.5V22" stroke="#47A248" strokeWidth="1.4" strokeLinecap="round" />
+    </svg>
+  );
+}

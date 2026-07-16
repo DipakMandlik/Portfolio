@@ -1,0 +1,52 @@
+<svg width="1280" height="896" viewBox="0 0 1280 896" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Saliva-Based Cancer Detection</title>
+  <desc id="desc">ML research prototype for spectral biomarker classification</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b3b36" />
+      <stop offset="55%" stop-color="#0a0a0b" />
+      <stop offset="100%" stop-color="#050507" />
+    </linearGradient>
+    <radialGradient id="glow" cx="80%" cy="22%" r="55%">
+      <stop offset="0%" stop-color="#2dd4bf" stop-opacity="0.25" />
+      <stop offset="100%" stop-color="#2dd4bf" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+
+  <rect width="1280" height="896" fill="url(#bg)" />
+  <rect width="1280" height="896" fill="url(#glow)" />
+
+  <!-- spectral absorbance curve motif -->
+  <g transform="translate(760,340)">
+    <line x1="0" y1="0" x2="0" y2="260" stroke="#5eead4" stroke-opacity="0.35" stroke-width="1.5" />
+    <line x1="0" y1="260" x2="440" y2="260" stroke="#5eead4" stroke-opacity="0.35" stroke-width="1.5" />
+    <path
+      d="M0 220 Q40 210 60 150 T120 60 Q140 40 160 80 T220 200 Q260 240 300 190 T380 100 Q410 70 440 130"
+      fill="none" stroke="#2dd4bf" stroke-width="3" stroke-linecap="round"
+    />
+    <circle cx="120" cy="60" r="5" fill="#2dd4bf" />
+    <circle cx="220" cy="200" r="5" fill="#2dd4bf" />
+    <circle cx="380" cy="100" r="5" fill="#2dd4bf" />
+  </g>
+
+  <text x="80" y="180" font-family="Georgia, 'Times New Roman', serif" font-size="46" fill="#f5f6f8" font-weight="600">
+    Saliva-Based Cancer Detection
+  </text>
+  <text x="80" y="222" font-family="Arial, Helvetica, sans-serif" font-size="20" fill="#9fe8db" letter-spacing="0.03em">
+    ML RESEARCH PROTOTYPE · SPECTRAL BIOMARKER CLASSIFICATION
+  </text>
+
+  <g font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#d3f5ee">
+    <rect x="80" y="800" width="150" height="34" rx="17" fill="#2dd4bf" fill-opacity="0.16" />
+    <text x="103" y="822">scikit-learn</text>
+
+    <rect x="242" y="800" width="120" height="34" rx="17" fill="#2dd4bf" fill-opacity="0.16" />
+    <text x="265" y="822">OpenCV</text>
+
+    <rect x="374" y="800" width="110" height="34" rx="17" fill="#2dd4bf" fill-opacity="0.16" />
+    <text x="397" y="822">Flask</text>
+
+    <rect x="496" y="800" width="130" height="34" rx="17" fill="#2dd4bf" fill-opacity="0.16" />
+    <text x="519" y="822">Research</text>
+  </g>
+</svg>

@@ -11,6 +11,7 @@ import {
   PostgreSqlLogo,
   RedisLogo,
   NextJsLogo,
+  NodeJsLogo,
   DockerLogo,
   SparkLogo,
   DeltaLakeLogo,
@@ -21,6 +22,10 @@ import {
   Html5Logo,
   Css3Logo,
   JavaScriptLogo,
+  FlaskLogo,
+  OpenCvLogo,
+  ExpressLogo,
+  MongoDbLogo,
 } from "@/components/icons/TechIcons";
 import projectFraudDetection from "@/assets/project-fraud-detection.svg";
 import projectAiByDm from "@/assets/project-aibydm.svg";
@@ -30,6 +35,8 @@ import projectBillingSystem from "@/assets/project-billing-system.svg";
 import projectDatadog from "@/assets/project-datadog-observability.svg";
 import projectSkillsPlatform from "@/assets/project-skills-platform.svg";
 import projectSoilTesting from "@/assets/project-soil-testing.svg";
+import projectStudysphere from "@/assets/project-studysphere.svg";
+import projectSalivaCancerDetection from "@/assets/project-saliva-cancer-detection.svg";
 
 export type StackIcon = (props: { className?: string }) => ReactElement;
 
@@ -155,6 +162,34 @@ export const projects: Project[] = [
       { name: "Tailwind CSS", icon: TailwindCssLogo },
     ],
     image: projectBillingSystem,
+  },
+  {
+    title: "StudySphere EduTech",
+    role: "Full-stack developer · 2024",
+    description:
+      "A MERN-stack EdTech platform guiding students across Medical, Engineering, Computer Science, and Agriculture streams — with account signup/login, stream-specific content, timed quizzes and exams with scoring, auto-generated completion certificates (PDF export), and a ChatGPT-powered assistant for student queries.",
+    stack: [
+      { name: "React", icon: ReactLogo },
+      { name: "Node.js", icon: NodeJsLogo },
+      { name: "Express", icon: ExpressLogo },
+      { name: "MongoDB", icon: MongoDbLogo },
+    ],
+    image: projectStudysphere,
+    repo: "https://github.com/DipakMandlik/StudySphere-EDUTECH",
+  },
+  {
+    title: "Saliva-Based Cancer Detection",
+    role: "Research project · 2025",
+    description:
+      "An ML research prototype exploring saliva-based oral cancer detection — digitizes uploaded spectral absorbance graphs via OpenCV image processing, then classifies samples with a trained Random Forest model using salivary biomarkers (miRNA-21, IL-8, Cyfra-21-1, MMP-9, lactate) alongside spectral wavelength features. Built and evaluated on a synthetic dataset as a feasibility study, with a Flask API prototype — a research exploration, not a deployed diagnostic tool.",
+    stack: [
+      { name: "Python", icon: PythonLogo },
+      { name: "scikit-learn", icon: ScikitLearnLogo },
+      { name: "OpenCV", icon: OpenCvLogo },
+      { name: "Flask", icon: FlaskLogo },
+    ],
+    image: projectSalivaCancerDetection,
+    repo: "https://github.com/DipakMandlik/Saliva-Based-Cancer-Detection",
   },
   {
     title: "Soil Testing Services",
