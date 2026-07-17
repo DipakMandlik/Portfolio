@@ -27,6 +27,8 @@ jobs:
       - run: bun install --frozen-lockfile
 
       - run: bun run build:pages
+        env:
+          VITE_GEMINI_API_KEY: ${{ secrets.VITE_GEMINI_API_KEY }}
 
       # Start's built-in prerender doesn't work with this Cloudflare-oriented Nitro
       # setup, so capture the static HTML ourselves: boot the built Node server,

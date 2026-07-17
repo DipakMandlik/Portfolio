@@ -1,6 +1,12 @@
 import { useEffect } from "react";
 import Lenis from "lenis";
 
+let activeLenis: Lenis | null = null;
+
+export function getLenis(): Lenis | null {
+  return activeLenis;
+}
+
 export function LenisProvider() {
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -12,6 +18,7 @@ export function LenisProvider() {
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       smoothWheel: true,
     });
+    activeLenis = lenis;
 
     let rafId = 0;
     const raf = (time: number) => {
@@ -23,6 +30,7 @@ export function LenisProvider() {
     return () => {
       cancelAnimationFrame(rafId);
       lenis.destroy();
+      activeLenis = null;
     };
   }, []);
 

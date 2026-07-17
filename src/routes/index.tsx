@@ -15,6 +15,7 @@ import { Awards } from "@/components/sections/Awards";
 import { Journey } from "@/components/sections/Journey";
 import { Contact } from "@/components/sections/Contact";
 import { Footer } from "@/components/sections/Footer";
+import { ChatWidget } from "@/components/chat/ChatWidget";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -85,6 +86,7 @@ function Index() {
         <Contact />
       </main>
       <Footer />
+      <ChatWidget />
     </>
   );
 }
